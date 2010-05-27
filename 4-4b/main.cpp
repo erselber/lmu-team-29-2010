@@ -1,7 +1,7 @@
-#include <QtGUI>
-#include "MyGLWidget.h"
-#include <QLCDNumber>
-
+#include <QSlider>
+#include <QHBoxLayout>
+#include "myglwidget.h"
+#include <QApplication>
 
 
 class MyWidget : public QWidget
