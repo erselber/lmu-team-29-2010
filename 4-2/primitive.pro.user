@@ -56,20 +56,10 @@
   <variable>buildConfiguration-Debug</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
-   <value key="QtVersionId" type="int">0</value>
+   <value key="QtVersionId" type="int">2</value>
    <value key="ToolChain" type="int">2</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildConfiguration-Release</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-   <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
-   <value key="addQDumper" type=""></value>
-   <value key="buildConfiguration" type="int">0</value>
   </valuemap>
  </data>
  <data>
@@ -113,14 +103,18 @@
     <value type="QString">__COMPAT_LAYER=EnableNXShowUI </value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-2/primitive.pro</value>
-    <value type="QString">-spec</value>
-    <value type="QString">win32-g++</value>
+    <value type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/erselber-lmu-team-29-2010/4-2/primitive.pro</value>
     <value type="QString">-r</value>
+    <value type="QString">-spec</value>
+    <value type="QString">c:\Programme\Qt\2010.02.1\qt\mkspecs\win32-g++</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString">c:/programme/qt/2010.02.1/qt/bin/qmake.exe</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-2</value>
+   <value key="abstractProcess.enabled" type="bool">false</value>
+   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/erselber-lmu-team-29-2010/4-2</value>
+   <valuelist key="qmakeArgs" type="QVariantList">
+    <value type="QString">-spec</value>
+    <value type="QString">c:\Programme\Qt\2010.02.1\qt\mkspecs\win32-g++</value>
+   </valuelist>
   </valuemap>
  </data>
  <data>
@@ -169,7 +163,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">C:/Programme/Qt/2010.02.1/mingw/bin/mingw32-make.exe</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-2</value>
+   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/erselber-lmu-team-29-2010/4-2</value>
   </valuemap>
  </data>
  <data>
@@ -183,28 +177,9 @@
   </valuemap>
  </data>
  <data>
-  <variable>buildconfiguration-Release-buildstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-Release-buildstep1</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-Release-cleanstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-  </valuemap>
- </data>
- <data>
   <variable>buildconfigurations</variable>
   <valuelist type="QVariantList">
    <value type="QString">Debug</value>
-   <value type="QString">Release</value>
   </valuelist>
  </data>
  <data>

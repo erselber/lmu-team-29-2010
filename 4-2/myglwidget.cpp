@@ -576,3 +576,4 @@ void MyGLWidget::rotateZ(int value){
         updateGL();
 
 }
+
