@@ -77,81 +77,40 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CLASSPATH=.:/opt/oracle/OraHome1/jdbc/lib/classes111.zip:/opt/oracle/OraHome1/sqlj/lib/translator.zip</value>
-    <value type="QString">COLORTERM=1</value>
-    <value type="QString">DBPRAKT_HOME=/home/proj/dbprakt/PRAKTIKUM/SS_03</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-9yoybMSfaU,guid=e1d70d84d86d8bd059224e214bfe9521</value>
-    <value type="QString">DISPLAY=:549.0</value>
-    <value type="QString">EDITOR=/usr/bin/vi</value>
-    <value type="QString">FULLNAME=Chadly Marouane</value>
-    <value type="QString">GS_LIB=/home/m/marouane/.fonts</value>
-    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/m/marouane/.gtkrc-2.0:/home/m/marouane/.gtkrc-2.0-kde4:/home/m/marouane/.kde4_4/share/config/gtkrc-2.0</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-kRVCTfJ8Jt,guid=97f18d76fd063b955b4ff96a4bff9814</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-ZAY0Gh</value>
+    <value type="QString">GNOME_KEYRING_PID=1237</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/m/marouane/.gtkrc::/home/m/marouane/.kde4_4/share/config/gtkrc</value>
-    <value type="QString">HISTFILE=/home/m/marouane/.history</value>
-    <value type="QString">HISTSIZE=500</value>
-    <value type="QString">HOME=/home/m/marouane</value>
-    <value type="QString">INFODIR=/usr/info:/usr/share/info:/usr/local/info:/soft/info:/soft/info/emacs</value>
-    <value type="QString">INFOPATH=/usr/info:/usr/share/info:/usr/local/info:/soft/info:/soft/info/emacs</value>
-    <value type="QString">KDEDIRS=/usr/share/debian-edu-artwork/kde-profile:</value>
-    <value type="QString">KDEHOME=/home/m/marouane/.kde4_4</value>
-    <value type="QString">KDE_FULL_SESSION=true</value>
-    <value type="QString">KDE_MULTIHEAD=false</value>
-    <value type="QString">KDE_SESSION_UID=21621</value>
-    <value type="QString">KDE_SESSION_VERSION=4</value>
-    <value type="QString">LANG=de_DE.UTF-8</value>
-    <value type="QString">LANGUAGE=</value>
-    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:/opt/oracle/OraHome1/lib</value>
-    <value type="QString">LESS=-Mi</value>
-    <value type="QString">LESSCHARSET=utf-8</value>
-    <value type="QString">LOGNAME=marouane</value>
-    <value type="QString">MAIL=/var/mail/marouane</value>
-    <value type="QString">MANPATH=/usr/local/man:/usr/share/man/allman:/usr/man:/usr/share/man:/usr/X11R6/man:/usr/man/allman:/usr/man/de:/soft/man</value>
-    <value type="QString">MANWIDTH=80</value>
-    <value type="QString">NX_ROOT=/var/lib/neatx/sessions/0B5BD94E5A718C6CCD9D76038DABF4E9</value>
-    <value type="QString">OLDPWD=/home/m/marouane</value>
-    <value type="QString">ORACLE_BASE=/opt/oracle</value>
-    <value type="QString">ORACLE_HOME=/opt/oracle/OraHome1</value>
-    <value type="QString">ORACLE_SID=CIP</value>
-    <value type="QString">ORACLE_TERM=ansi</value>
-    <value type="QString">ORA_NLS33=/opt/oracle/OraHome1/ocommon/nls/admin/data</value>
-    <value type="QString">ORGANIZATION=Department of computer sciences, Munich University, Bavaria/Germany</value>
-    <value type="QString">PAGER=/usr/bin/less</value>
-    <value type="QString">PATH=/usr/bin:/opt/oracle/OraHome1/bin:/home/m/marouane/bin:/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/opt/bin:/usr/games:/soft/bin:/soft/IFI/pkg/bin:/soft/IFI/pkg/sbin:.</value>
-    <value type="QString">POSTPATH=.</value>
-    <value type="QString">POSTPATHPROJEKTE=</value>
-    <value type="QString">PREPATH=/home/m/marouane/bin:/usr/local/bin</value>
-    <value type="QString">PREPATHPROJEKTE=/opt/oracle/OraHome1/bin:</value>
-    <value type="QString">PROMPT=%n@%m:%3c (%?) [%*] %# </value>
-    <value type="QString">PWD=/home/m/marouane/Dokumente</value>
-    <value type="QString">PYTHONPATH=:/usr/lib/python2.6/dist-packages</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">QT_PLUGIN_PATH=/home/m/marouane/.kde4_4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString">SAVEHIST=500</value>
-    <value type="QString">SESSION_MANAGER=local/predigtstuhl.cip.ifi.lmu.de:@/tmp/.ICE-unix/10845,unix/predigtstuhl.cip.ifi.lmu.de:/tmp/.ICE-unix/10845</value>
-    <value type="QString">SHELL=/usr/bin/zsh</value>
-    <value type="QString">SHLVL=0</value>
-    <value type="QString">SOFTPATH=/soft/bin:/soft/IFI/pkg/bin:/soft/IFI/pkg/sbin</value>
-    <value type="QString">SSH_AGENT_PID=10466</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-Hnouz10465/agent.10465</value>
-    <value type="QString">SSH_CLIENT=2001:4ca0:4000:0:141:84:220:120 49231 22</value>
-    <value type="QString">SSH_CONNECTION=2001:4ca0:4000:0:141:84:220:120 49231 2001:4ca0:4000:0:141:84:220:120 22</value>
-    <value type="QString">START_SSHAGENT=1</value>
-    <value type="QString">SYSPATH=/bin:/usr/bin:/usr/X11R6/bin:/opt/bin:/usr/games</value>
-    <value type="QString">TEXINPUTS=:~/.TeX:/usr/doc/.TeX</value>
-    <value type="QString">UDEdir=</value>
-    <value type="QString">USER=marouane</value>
-    <value type="QString">VISUAL=/usr/bin/vi</value>
-    <value type="QString">XAUTHORITY=/var/lib/neatx/sessions/0B5BD94E5A718C6CCD9D76038DABF4E9/authority</value>
-    <value type="QString">XCURSOR_THEME=oxy-white</value>
-    <value type="QString">XDG_CONFIG_DIRS=:/opt/rbg/xdg:/etc/xdg</value>
-    <value type="QString">XDG_DATA_DIRS=:/opt/rbg/share:/usr/local/share:/usr/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=49566e0288da9fe07bbc8e124b87dec9-1274975521.652197-679401938</value>
-    <value type="QString">XNLSPATH=/usr/X11R6/lib/X11/nls</value>
-    <value type="QString">_=/etc/X11/Xsession</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1255,unix/jet-lee-laptop:/tmp/.ICE-unix/1255</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1289</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-ZAY0Gh/ssh</value>
+    <value type="QString">USER=jet-lee</value>
+    <value type="QString">USERNAME=jet-lee</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-4m54G8/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1275041812.199736-2054449475</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">/home/m/marouane/erselber-lmu-team-29-2010/4-2/primitive.pro</value>
+    <value type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-2/primitive.pro</value>
     <value type="QString">-spec</value>
     <value type="QString">linux-g++</value>
     <value type="QString">-r</value>
@@ -159,7 +118,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/qmake-qt4</value>
    <value key="abstractProcess.enabled" type="bool">false</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/m/marouane/erselber-lmu-team-29-2010/4-2</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-2</value>
   </valuemap>
  </data>
  <data>
@@ -167,78 +126,37 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CLASSPATH=.:/opt/oracle/OraHome1/jdbc/lib/classes111.zip:/opt/oracle/OraHome1/sqlj/lib/translator.zip</value>
-    <value type="QString">COLORTERM=1</value>
-    <value type="QString">DBPRAKT_HOME=/home/proj/dbprakt/PRAKTIKUM/SS_03</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-9yoybMSfaU,guid=e1d70d84d86d8bd059224e214bfe9521</value>
-    <value type="QString">DISPLAY=:549.0</value>
-    <value type="QString">EDITOR=/usr/bin/vi</value>
-    <value type="QString">FULLNAME=Chadly Marouane</value>
-    <value type="QString">GS_LIB=/home/m/marouane/.fonts</value>
-    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/m/marouane/.gtkrc-2.0:/home/m/marouane/.gtkrc-2.0-kde4:/home/m/marouane/.kde4_4/share/config/gtkrc-2.0</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-kRVCTfJ8Jt,guid=97f18d76fd063b955b4ff96a4bff9814</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-ZAY0Gh</value>
+    <value type="QString">GNOME_KEYRING_PID=1237</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/m/marouane/.gtkrc::/home/m/marouane/.kde4_4/share/config/gtkrc</value>
-    <value type="QString">HISTFILE=/home/m/marouane/.history</value>
-    <value type="QString">HISTSIZE=500</value>
-    <value type="QString">HOME=/home/m/marouane</value>
-    <value type="QString">INFODIR=/usr/info:/usr/share/info:/usr/local/info:/soft/info:/soft/info/emacs</value>
-    <value type="QString">INFOPATH=/usr/info:/usr/share/info:/usr/local/info:/soft/info:/soft/info/emacs</value>
-    <value type="QString">KDEDIRS=/usr/share/debian-edu-artwork/kde-profile:</value>
-    <value type="QString">KDEHOME=/home/m/marouane/.kde4_4</value>
-    <value type="QString">KDE_FULL_SESSION=true</value>
-    <value type="QString">KDE_MULTIHEAD=false</value>
-    <value type="QString">KDE_SESSION_UID=21621</value>
-    <value type="QString">KDE_SESSION_VERSION=4</value>
-    <value type="QString">LANG=de_DE.UTF-8</value>
-    <value type="QString">LANGUAGE=</value>
-    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:/opt/oracle/OraHome1/lib</value>
-    <value type="QString">LESS=-Mi</value>
-    <value type="QString">LESSCHARSET=utf-8</value>
-    <value type="QString">LOGNAME=marouane</value>
-    <value type="QString">MAIL=/var/mail/marouane</value>
-    <value type="QString">MANPATH=/usr/local/man:/usr/share/man/allman:/usr/man:/usr/share/man:/usr/X11R6/man:/usr/man/allman:/usr/man/de:/soft/man</value>
-    <value type="QString">MANWIDTH=80</value>
-    <value type="QString">NX_ROOT=/var/lib/neatx/sessions/0B5BD94E5A718C6CCD9D76038DABF4E9</value>
-    <value type="QString">OLDPWD=/home/m/marouane</value>
-    <value type="QString">ORACLE_BASE=/opt/oracle</value>
-    <value type="QString">ORACLE_HOME=/opt/oracle/OraHome1</value>
-    <value type="QString">ORACLE_SID=CIP</value>
-    <value type="QString">ORACLE_TERM=ansi</value>
-    <value type="QString">ORA_NLS33=/opt/oracle/OraHome1/ocommon/nls/admin/data</value>
-    <value type="QString">ORGANIZATION=Department of computer sciences, Munich University, Bavaria/Germany</value>
-    <value type="QString">PAGER=/usr/bin/less</value>
-    <value type="QString">PATH=/usr/bin:/opt/oracle/OraHome1/bin:/home/m/marouane/bin:/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/opt/bin:/usr/games:/soft/bin:/soft/IFI/pkg/bin:/soft/IFI/pkg/sbin:.</value>
-    <value type="QString">POSTPATH=.</value>
-    <value type="QString">POSTPATHPROJEKTE=</value>
-    <value type="QString">PREPATH=/home/m/marouane/bin:/usr/local/bin</value>
-    <value type="QString">PREPATHPROJEKTE=/opt/oracle/OraHome1/bin:</value>
-    <value type="QString">PROMPT=%n@%m:%3c (%?) [%*] %# </value>
-    <value type="QString">PWD=/home/m/marouane/Dokumente</value>
-    <value type="QString">PYTHONPATH=:/usr/lib/python2.6/dist-packages</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">QT_PLUGIN_PATH=/home/m/marouane/.kde4_4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString">SAVEHIST=500</value>
-    <value type="QString">SESSION_MANAGER=local/predigtstuhl.cip.ifi.lmu.de:@/tmp/.ICE-unix/10845,unix/predigtstuhl.cip.ifi.lmu.de:/tmp/.ICE-unix/10845</value>
-    <value type="QString">SHELL=/usr/bin/zsh</value>
-    <value type="QString">SHLVL=0</value>
-    <value type="QString">SOFTPATH=/soft/bin:/soft/IFI/pkg/bin:/soft/IFI/pkg/sbin</value>
-    <value type="QString">SSH_AGENT_PID=10466</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-Hnouz10465/agent.10465</value>
-    <value type="QString">SSH_CLIENT=2001:4ca0:4000:0:141:84:220:120 49231 22</value>
-    <value type="QString">SSH_CONNECTION=2001:4ca0:4000:0:141:84:220:120 49231 2001:4ca0:4000:0:141:84:220:120 22</value>
-    <value type="QString">START_SSHAGENT=1</value>
-    <value type="QString">SYSPATH=/bin:/usr/bin:/usr/X11R6/bin:/opt/bin:/usr/games</value>
-    <value type="QString">TEXINPUTS=:~/.TeX:/usr/doc/.TeX</value>
-    <value type="QString">UDEdir=</value>
-    <value type="QString">USER=marouane</value>
-    <value type="QString">VISUAL=/usr/bin/vi</value>
-    <value type="QString">XAUTHORITY=/var/lib/neatx/sessions/0B5BD94E5A718C6CCD9D76038DABF4E9/authority</value>
-    <value type="QString">XCURSOR_THEME=oxy-white</value>
-    <value type="QString">XDG_CONFIG_DIRS=:/opt/rbg/xdg:/etc/xdg</value>
-    <value type="QString">XDG_DATA_DIRS=:/opt/rbg/share:/usr/local/share:/usr/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=49566e0288da9fe07bbc8e124b87dec9-1274975521.652197-679401938</value>
-    <value type="QString">XNLSPATH=/usr/X11R6/lib/X11/nls</value>
-    <value type="QString">_=/etc/X11/Xsession</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1255,unix/jet-lee-laptop:/tmp/.ICE-unix/1255</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1289</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-ZAY0Gh/ssh</value>
+    <value type="QString">USER=jet-lee</value>
+    <value type="QString">USERNAME=jet-lee</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-4m54G8/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1275041812.199736-2054449475</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -246,13 +164,54 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/m/marouane/erselber-lmu-team-29-2010/4-2</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-2</value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-Debug-cleanstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-okPYVJIJvl,guid=0e35f49c1dae47d7981cdee54bfedbb5</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-3aUTSb</value>
+    <value type="QString">GNOME_KEYRING_PID=1237</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1255,unix/jet-lee-laptop:/tmp/.ICE-unix/1255</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1289</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-3aUTSb/ssh</value>
+    <value type="QString">USER=jet-lee</value>
+    <value type="QString">USERNAME=jet-lee</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-uXLRV7/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1274993589.35795-1861463486</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-2</value>
    <value key="cleanConfig" type="bool">true</value>
    <valuelist key="makeargs" type="QVariantList">
     <value type="QString">clean</value>

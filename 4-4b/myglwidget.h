@@ -13,6 +13,7 @@ public:
     MyGLWidget()
     {
         y_axis = 0;
+        rotation = false;
     }
 
 
@@ -26,11 +27,19 @@ protected:
 
     void paint_cube();
 
-    void mousePressEvent(QMouseEvent *e);
+    void mousePressEvent(QMouseEvent *event);
+
+    void mouseMoveEvent(QMouseEvent *event);
+
+    void mouseReleaseEvent(QMouseEvent *event);
+
+    void rotate_Y_axis(QMouseEvent *event);
 
 private:
 
     int y_axis;
+    QPoint lastPos;
+    bool rotation;
 };
 
 #endif // MYGLWIDGET_H

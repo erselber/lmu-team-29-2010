@@ -57,7 +57,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
+   <value key="ToolChain" type="int">0</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
   </valuemap>
@@ -67,7 +67,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
+   <value key="ToolChain" type="int">0</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">0</value>
   </valuemap>
@@ -77,50 +77,48 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\Dokumente und Einstellungen\All Users</value>
-    <value type="QString">APPDATA=C:\Dokumente und Einstellungen\jet-lee\Anwendungsdaten</value>
-    <value type="QString">CLASSPATH=.;C:\Programme\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Programme\Gemeinsame Dateien</value>
-    <value type="QString">COMPUTERNAME=JET-LEE-LAPTOP</value>
-    <value type="QString">COMSPEC=C:\WINDOWS\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Dokumente und Einstellungen\jet-lee</value>
-    <value type="QString">LOGONSERVER=\\JET-LEE-LAPTOP</value>
-    <value type="QString">NEWENVIRONMENT1=C:\Programme\ATI Technologies\ATI.ACE\</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Programme\Qt\2010.02.1\mingw\bin;C:\Programme\Qt\2010.02.1\qt\bin;C:\Programme\MiKTeX 2.8\miktex\bin;C:\Programme\PC Connectivity Solution\;C:\Programme\ThinkPad\Utilities;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Programme\Gemeinsame Dateien\DivX Shared\;C:\Programme\QuickTime\QTSystem\;C:\Programme\Intel\WiFi\bin\;C:\Programme\Git\cmd</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=x86 Family 6 Model 14 Stepping 8, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=0e08</value>
-    <value type="QString">PROGRAMFILES=C:\Programme</value>
-    <value type="QString">QTDIR=C:/Programme/Qt/2010.02.1/qt</value>
-    <value type="QString">QTJAVA=C:\Programme\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SMA=C:\Programme\ThinkVantage\SMA\</value>
-    <value type="QString">SONICCENTRAL=C:\Programme\Gemeinsame Dateien\Sonic Shared\Sonic Central\</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\WINDOWS</value>
-    <value type="QString">TEMP=C:\DOKUME~1\jet-lee\LOKALE~1\Temp</value>
-    <value type="QString">TMP=C:\DOKUME~1\jet-lee\LOKALE~1\Temp</value>
-    <value type="QString">USERDOMAIN=JET-LEE-LAPTOP</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-kRVCTfJ8Jt,guid=97f18d76fd063b955b4ff96a4bff9814</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-ZAY0Gh</value>
+    <value type="QString">GNOME_KEYRING_PID=1237</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1255,unix/jet-lee-laptop:/tmp/.ICE-unix/1255</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1289</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-ZAY0Gh/ssh</value>
+    <value type="QString">USER=jet-lee</value>
     <value type="QString">USERNAME=jet-lee</value>
-    <value type="QString">USERPROFILE=C:\Dokumente und Einstellungen\jet-lee</value>
-    <value type="QString">WINDIR=C:\WINDOWS</value>
-    <value type="QString">__COMPAT_LAYER=EnableNXShowUI </value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-4m54G8/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1275041812.199736-2054449475</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-3/transform.pro</value>
+    <value type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-3/transform.pro</value>
     <value type="QString">-spec</value>
-    <value type="QString">win32-g++</value>
+    <value type="QString">linux-g++</value>
     <value type="QString">-r</value>
+    <value type="QString">CONFIG+=debug</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">c:/programme/qt/2010.02.1/qt/bin/qmake.exe</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-3</value>
+   <value key="abstractProcess.command" type="QString">/usr/bin/qmake-qt4</value>
+   <value key="abstractProcess.enabled" type="bool">false</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-3</value>
   </valuemap>
  </data>
  <data>
@@ -128,54 +126,92 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\Dokumente und Einstellungen\All Users</value>
-    <value type="QString">APPDATA=C:\Dokumente und Einstellungen\jet-lee\Anwendungsdaten</value>
-    <value type="QString">CLASSPATH=.;C:\Programme\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Programme\Gemeinsame Dateien</value>
-    <value type="QString">COMPUTERNAME=JET-LEE-LAPTOP</value>
-    <value type="QString">COMSPEC=C:\WINDOWS\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Dokumente und Einstellungen\jet-lee</value>
-    <value type="QString">LOGONSERVER=\\JET-LEE-LAPTOP</value>
-    <value type="QString">NEWENVIRONMENT1=C:\Programme\ATI Technologies\ATI.ACE\</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Programme\Qt\2010.02.1\mingw\bin;C:\Programme\Qt\2010.02.1\qt\bin;C:\Programme\MiKTeX 2.8\miktex\bin;C:\Programme\PC Connectivity Solution\;C:\Programme\ThinkPad\Utilities;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Programme\Gemeinsame Dateien\DivX Shared\;C:\Programme\QuickTime\QTSystem\;C:\Programme\Intel\WiFi\bin\;C:\Programme\Git\cmd</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=x86 Family 6 Model 14 Stepping 8, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=0e08</value>
-    <value type="QString">PROGRAMFILES=C:\Programme</value>
-    <value type="QString">QTDIR=C:/Programme/Qt/2010.02.1/qt</value>
-    <value type="QString">QTJAVA=C:\Programme\Java\jre6\lib\ext\QTJava.zip</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SMA=C:\Programme\ThinkVantage\SMA\</value>
-    <value type="QString">SONICCENTRAL=C:\Programme\Gemeinsame Dateien\Sonic Shared\Sonic Central\</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\WINDOWS</value>
-    <value type="QString">TEMP=C:\DOKUME~1\jet-lee\LOKALE~1\Temp</value>
-    <value type="QString">TMP=C:\DOKUME~1\jet-lee\LOKALE~1\Temp</value>
-    <value type="QString">USERDOMAIN=JET-LEE-LAPTOP</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-kRVCTfJ8Jt,guid=97f18d76fd063b955b4ff96a4bff9814</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-ZAY0Gh</value>
+    <value type="QString">GNOME_KEYRING_PID=1237</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1255,unix/jet-lee-laptop:/tmp/.ICE-unix/1255</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1289</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-ZAY0Gh/ssh</value>
+    <value type="QString">USER=jet-lee</value>
     <value type="QString">USERNAME=jet-lee</value>
-    <value type="QString">USERPROFILE=C:\Dokumente und Einstellungen\jet-lee</value>
-    <value type="QString">WINDIR=C:\WINDOWS</value>
-    <value type="QString">__COMPAT_LAYER=EnableNXShowUI </value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-4m54G8/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1275041812.199736-2054449475</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">-w</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">C:/Programme/Qt/2010.02.1/mingw/bin/mingw32-make.exe</value>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-3</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-3</value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-Debug-cleanstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-okPYVJIJvl,guid=0e35f49c1dae47d7981cdee54bfedbb5</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-3aUTSb</value>
+    <value type="QString">GNOME_KEYRING_PID=1237</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1255,unix/jet-lee-laptop:/tmp/.ICE-unix/1255</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1289</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-3aUTSb/ssh</value>
+    <value type="QString">USER=jet-lee</value>
+    <value type="QString">USERNAME=jet-lee</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-uXLRV7/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1274993589.35795-1861463486</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-3</value>
    <value key="cleanConfig" type="bool">true</value>
    <valuelist key="makeargs" type="QVariantList">
     <value type="QString">clean</value>

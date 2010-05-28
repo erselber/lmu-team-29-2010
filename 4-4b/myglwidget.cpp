@@ -6,6 +6,7 @@
 #include <qevent.h>
 
 
+
 /**************************************************************************************/
 
 
@@ -22,7 +23,6 @@ void MyGLWidget::initializeGL(){
 void MyGLWidget::resizeGL(int w, int h){
 
     glViewport(0,0, 800,800);
-
 
 
 }
@@ -183,22 +183,45 @@ void MyGLWidget::paint_cube()
 }
 
 /**************************************************************************************/
-void MyGLWidget::mousePressEvent(QMouseEvent *e) {
 
-    if(e->button() == Qt::LeftButton)
+
+void MyGLWidget::mousePressEvent(QMouseEvent *event)
+{
+    lastPos = event->pos();
+
+    if(event->button() == Qt::LeftButton)
     {
-        y_axis += 10;
+
     }
+
+}
+/**************************************************************************************/
+
+void MyGLWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    lastPos = event->pos();
+
+}
+
+/*************************************************************************************/
+void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    int dx = event->x() - lastPos.x();
+    int dy = event->y() - lastPos.y();
+
+
+
+    lastPos = event->pos();
     updateGL();
 }
 
-/**************************************************************************************
-void MyGLWidget::mouseMoveEvent ( QMouseEvent * e ){
 
-    if(e->button() == Qt::RightButton)
-    {
-        e->po
+/*************************************************************************************/
+void MyGLWidget::rotate_Y_axis(QMouseEvent *event)
+{
+    while(event->MouseButtonPress)
+    {   y_axis +=10;
+        updateGL();
+
     }
-    updateGL();
 }
-*/
