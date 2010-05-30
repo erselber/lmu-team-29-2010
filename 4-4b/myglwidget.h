@@ -15,6 +15,7 @@ public:
 
         y_axis = 0;
         z_axis = -10;
+        winkel = 45;
         perspektive = true;
     }
 
@@ -35,12 +36,14 @@ protected:
 
     void mouseReleaseEvent(QMouseEvent *event);
 
+    void wheelEvent(QWheelEvent *event);
+
 
 private:
 
     float y_axis;
     float z_axis;
-
+    float winkel;
     bool perspektive;
     QPoint lastPos;
 };

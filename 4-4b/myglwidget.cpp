@@ -12,6 +12,7 @@
 
 void MyGLWidget::initializeGL(){
 
+
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
 
@@ -31,8 +32,6 @@ void MyGLWidget::resizeGL(int w, int h){
 
 void MyGLWidget::paintGL(){
 
-    //
-
 
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glClearColor(0,0,0,1);
@@ -40,16 +39,33 @@ void MyGLWidget::paintGL(){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
+
+    /*** Perspektivisch oder Orthographisch ***/
+
+    GLdouble pi = 3.1415926535;
+    GLdouble my_near = 0.1;
+    GLdouble my_far = 1000;
+
+
+    GLdouble aspect = 1;
+
+
+    GLdouble width,height;
+
+    height = tan( winkel / 360 * pi ) * my_near;
+
+    width = height * aspect;
+
     if(perspektive)
     {
-        gluPerspective(45,1,1,1000);
-    }
-    else
+        glFrustum(-width, width, -height, height, my_near, my_far);
+    } else
     {
-        glOrtho(1,1,1,1,1,1000);
+        float zoom = z_axis*z_axis;
+        glOrtho(-width*zoom, width*zoom, -width*zoom, width*zoom, my_near, my_far);
+
     }
-
-
+    /*****************************/
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -191,7 +207,13 @@ void MyGLWidget::paint_cube()
 }
 
 /**************************************************************************************/
+void MyGLWidget::wheelEvent(QWheelEvent *event)
+{
+    winkel += (event->delta()/120);
 
+    std::cout << "EVENT DATA: " << event->delta() << std::endl;
+    updateGL();
+}
 
 void MyGLWidget::mousePressEvent(QMouseEvent *event)
 {
@@ -200,12 +222,12 @@ void MyGLWidget::mousePressEvent(QMouseEvent *event)
 
     if(event->buttons() & Qt::MidButton)
     {
-        if(perspektive == false)
+        if(perspektive == true)
         {
-            perspektive = true;
+            perspektive = false;
         }
         else {
-            perspektive = false;
+            perspektive = true;
         }
     }
 
