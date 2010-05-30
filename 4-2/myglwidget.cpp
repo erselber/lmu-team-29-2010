@@ -75,6 +75,7 @@ void MyGLWidget::initializeGL(){
     glEnable(GL_CULL_FACE);
 
 
+
     m_glGenBuffers = (PFNGLGENBUFFERSPROC)this->context()->getProcAddress("glGenBuffers");
     m_glBindBuffer = (PFNGLBINDBUFFERPROC)this->context()->getProcAddress("glBindBuffer");
     m_glBufferData = (PFNGLBUFFERDATAPROC)this->context()->getProcAddress("glBufferData");
@@ -231,7 +232,7 @@ void MyGLWidget::paint_three()
      glEnableClientState(GL_VERTEX_ARRAY);
      glVertexPointer(3,GL_FLOAT,0,vertices1);
 
-     /************************
+     /************************/
 
        //Farbe fuer jede Seite, geht nicht ?!?!
      glColor3f(1,0,0);
@@ -246,9 +247,9 @@ void MyGLWidget::paint_three()
      glDrawArrays(GL_QUADS,16,20);
      glColor3f(1,1,0);
      glDrawArrays(GL_QUADS,20,24);
-     ***********************/
+    /***********************/
 
-     glDrawArrays(GL_QUADS,0,24);
+    // glDrawArrays(GL_QUADS,0,24);
 
      glDisableClientState(GL_VERTEX_ARRAY);
 

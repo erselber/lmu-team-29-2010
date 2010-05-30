@@ -6,6 +6,7 @@
 #include <qevent.h>
 
 
+
 /**************************************************************************************/
 
 
@@ -24,7 +25,6 @@ void MyGLWidget::resizeGL(int w, int h){
     glViewport(0,0, 800,800);
 
 
-
 }
 
 /**************************************************************************************/
@@ -39,14 +39,22 @@ void MyGLWidget::paintGL(){
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45,1,1,1000);
+
+    if(perspektive)
+    {
+        gluPerspective(45,1,1,1000);
+    }
+    else
+    {
+        glOrtho(1,1,1,1,1,1000);
+    }
 
 
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    glTranslated(0,0,-10);
+    glTranslated(0,0,z_axis);
 
     glRotated(y_axis,0,1,0);
 
@@ -183,22 +191,57 @@ void MyGLWidget::paint_cube()
 }
 
 /**************************************************************************************/
-void MyGLWidget::mousePressEvent(QMouseEvent *e) {
 
-    if(e->button() == Qt::LeftButton)
+
+void MyGLWidget::mousePressEvent(QMouseEvent *event)
+{
+    lastPos = event->pos();
+
+
+    if(event->buttons() & Qt::MidButton)
     {
-        y_axis += 10;
+        if(perspektive == false)
+        {
+            perspektive = true;
+        }
+        else {
+            perspektive = false;
+        }
     }
+
+    updateGL();
+
+}
+/**************************************************************************************/
+
+void MyGLWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    lastPos = event->pos();
+
     updateGL();
 }
 
-/**************************************************************************************
-void MyGLWidget::mouseMoveEvent ( QMouseEvent * e ){
+/*************************************************************************************/
+void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    int dx = event->x() - lastPos.x();
+    int dy = event->y() - lastPos.y();
 
-    if(e->button() == Qt::RightButton)
+    if(event->buttons() & Qt::LeftButton)
     {
-        e->po
+        y_axis += dx;
     }
+
+    if(event->buttons() & Qt::RightButton)
+    {
+        z_axis += dy;
+    }
+
+
+    lastPos = event->pos();
     updateGL();
 }
-*/
+
+
+/*************************************************************************************/
+

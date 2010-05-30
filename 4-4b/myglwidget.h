@@ -12,7 +12,10 @@ class MyGLWidget : public QGLWidget
 public:
     MyGLWidget()
     {
+
         y_axis = 0;
+        z_axis = -10;
+        perspektive = true;
     }
 
 
@@ -26,11 +29,20 @@ protected:
 
     void paint_cube();
 
-    void mousePressEvent(QMouseEvent *e);
+    void mousePressEvent(QMouseEvent *event);
+
+    void mouseMoveEvent(QMouseEvent *event);
+
+    void mouseReleaseEvent(QMouseEvent *event);
+
 
 private:
 
-    int y_axis;
+    float y_axis;
+    float z_axis;
+
+    bool perspektive;
+    QPoint lastPos;
 };
 
 #endif // MYGLWIDGET_H
