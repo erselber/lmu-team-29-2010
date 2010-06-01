@@ -113,14 +113,14 @@
     <value type="QString">__COMPAT_LAYER=EnableNXShowUI </value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-3/transform.pro</value>
+    <value type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/erselber-lmu-team-29-2010/4-3/transform.pro</value>
     <value type="QString">-spec</value>
     <value type="QString">win32-g++</value>
     <value type="QString">-r</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString">c:/programme/qt/2010.02.1/qt/bin/qmake.exe</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-3</value>
+   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/erselber-lmu-team-29-2010/4-3</value>
   </valuemap>
  </data>
  <data>
@@ -169,13 +169,54 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">C:/Programme/Qt/2010.02.1/mingw/bin/mingw32-make.exe</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/CG1_Repository/erselber-lmu-team-29-2010/4-3</value>
+   <value key="abstractProcess.workingDirectory" type="QString">C:/Dokumente und Einstellungen/jet-lee/Eigene Dateien/erselber-lmu-team-29-2010/4-3</value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-Debug-cleanstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-okPYVJIJvl,guid=0e35f49c1dae47d7981cdee54bfedbb5</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-3aUTSb</value>
+    <value type="QString">GNOME_KEYRING_PID=1237</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1255,unix/jet-lee-laptop:/tmp/.ICE-unix/1255</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1289</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-3aUTSb/ssh</value>
+    <value type="QString">USER=jet-lee</value>
+    <value type="QString">USERNAME=jet-lee</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-uXLRV7/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1274993589.35795-1861463486</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/4-3</value>
    <value key="cleanConfig" type="bool">true</value>
    <valuelist key="makeargs" type="QVariantList">
     <value type="QString">clean</value>
