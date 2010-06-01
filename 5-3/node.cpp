@@ -37,7 +37,7 @@ void Node::applySelf()
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45,1,1,1000);
+    gluPerspective(45,1,1,100);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -48,12 +48,6 @@ void Node::applySelf()
 
 void Node::addChild(Node *child)
 {
-/*
-    if(children.size() == 0)
-    {
-        children();
-    }
-    */
     children.push_back(child);
 }
 
