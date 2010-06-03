@@ -59,4 +59,5 @@ void BoxNode::applySelf()
             glVertex3f(-0.5,-0.5,-0.5);
 
          glEnd();
+
 };

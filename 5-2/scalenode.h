@@ -6,7 +6,7 @@
 class ScaleNode : public TransformNode
 {
 public:
-    ScaleNode(float xx,float yy, float zz){
+    ScaleNode(float xx = 1,float yy = 1, float zz = 1){
 
         name = "ScaleNode";
         type = "ScaleNode";

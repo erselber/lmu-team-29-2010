@@ -23,6 +23,11 @@ protected:
 
     void paintGL();
 
+
+
+private:
+    void initializeSCENE();
+
 };
 
 #endif // MYGLWIDGET_H

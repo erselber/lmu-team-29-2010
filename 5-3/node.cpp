@@ -3,8 +3,6 @@
 
 /******************************************************************************/
 /******************************************************************************/
-//std::string type = "Node";
-//std::string name = "Node";
 
 
 Node::Node(std::string name){
@@ -23,13 +21,19 @@ Node::~Node(){
 
 void Node::apply()
 {
+
     applySelf();
 
     for (unsigned int i = 0; i < children.size(); i++)
     {
+
+
+
         glPushMatrix();
         children[i]->apply();
         glPopMatrix();
+
+
     }
 }
 
@@ -45,13 +49,8 @@ void Node::applySelf()
 
 void Node::addChild(Node *child)
 {
-/*
-    if(children.size() == 0)
-    {
-        children();
-    }
-    */
     children.push_back(child);
+
 }
 
 /******************************************************************************/

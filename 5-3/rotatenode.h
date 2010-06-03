@@ -6,7 +6,7 @@
 class RotateNode : public TransformNode
 {
 public:
-    RotateNode(float grad_t, int xx, int yy, int zz ){
+    RotateNode(float grad_t = 0, int xx = 0, int yy = 0, int zz = 0 ){
 
         name = "RotateNode";
         type = "RotateNode";
@@ -18,6 +18,8 @@ public:
     };
 
     void applySelf();
+
+    void setRotation(float grad,int axis);
 
 private:
     float grad;

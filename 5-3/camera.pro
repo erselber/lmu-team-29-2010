@@ -8,7 +8,8 @@ HEADERS += translatenode.h \
     myglwidget.h \
     geometrynode.h \
     boxnode.h \
-    rootnode.h
+    rootnode.h \
+    cameranode.h
 SOURCES += translatenode.cpp \
     transformnode.cpp \
     scene.cpp \
@@ -19,5 +20,6 @@ SOURCES += translatenode.cpp \
     main.cpp \
     geometrynode.cpp \
     boxnode.cpp \
-    rootnode.cpp
+    rootnode.cpp \
+    cameranode.cpp
 QT += opengl

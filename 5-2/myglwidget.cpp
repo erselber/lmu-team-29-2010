@@ -7,6 +7,9 @@
 #include "translatenode.h"
 #include "rotatenode.h"
 #include "scalenode.h"
+
+
+Scene *scene;
 /**************************************************************************************/
 
 
@@ -16,6 +19,7 @@ void MyGLWidget::initializeGL(){
     glEnable(GL_CULL_FACE);
 
 
+    initializeSCENE();
 }
 
 /**************************************************************************************/
@@ -38,6 +42,14 @@ void MyGLWidget::paintGL(){
     glClearColor(0,0,0,1);
 
 
+    scene->render();
+
+}
+
+/*************************************************************************************/
+
+void MyGLWidget::initializeSCENE()
+{
 
     RootNode *root = new RootNode();
     TranslateNode *tnode = new TranslateNode(0,0,-10);
@@ -78,10 +90,5 @@ void MyGLWidget::paintGL(){
     box3->setColor(0,0,1);
     s4node->addChild(box3);
 
-    Scene *scene = new Scene(root);
-    scene->render();
-
-
-
-
+    scene = new Scene(root);
 }

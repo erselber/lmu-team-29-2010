@@ -10,5 +10,6 @@ INPUT(
 ./debug\geometrynode.o
 ./debug\boxnode.o
 ./debug\rootnode.o
+./debug\cameranode.o
 ./debug\moc_myglwidget.o
 );

@@ -8,7 +8,7 @@ class TranslateNode : public TransformNode
 {
 
 public:
-    TranslateNode(float xx, float yy, float zz){
+    TranslateNode(float xx = 0, float yy = 0, float zz = 0){
         name = "TranslateNode";
         type = "TranslateNode";
         x = xx;
