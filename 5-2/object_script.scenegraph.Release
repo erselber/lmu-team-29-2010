@@ -9,5 +9,6 @@ INPUT(
 ./release\translatenode.o
 ./release\scalenode.o
 ./release\rotatenode.o
+./release\rootnode.o
 ./release\moc_myglwidget.o
 );

@@ -2,7 +2,7 @@
 
 #include "myglwidget.h"
 #include "scene.h"
-#include "node.h"
+#include "rootnode.h"
 #include "boxnode.h"
 #include "translatenode.h"
 #include "rotatenode.h"
@@ -38,7 +38,8 @@ void MyGLWidget::paintGL(){
     glClearColor(0,0,0,1);
 
 
-    Node *root = new Node();
+
+    RootNode *root = new RootNode();
     TranslateNode *tnode = new TranslateNode(0,0,-10);
     root->addChild(tnode);
 

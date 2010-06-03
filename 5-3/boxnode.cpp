@@ -2,9 +2,9 @@
 
 
 /******************************************************************************/
-BoxNode::BoxNode()
+BoxNode::BoxNode(std::string name )
 {
-    name = "BoxNode";
+    name = name;
     type = "BoxNode";
 }
 

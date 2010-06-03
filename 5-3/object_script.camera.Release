@@ -1,0 +1,14 @@
+INPUT(
+./release\translatenode.o
+./release\transformnode.o
+./release\scene.o
+./release\scalenode.o
+./release\rotatenode.o
+./release\node.o
+./release\myglwidget.o
+./release\main.o
+./release\geometrynode.o
+./release\boxnode.o
+./release\rootnode.o
+./release\moc_myglwidget.o
+);

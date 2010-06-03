@@ -7,7 +7,7 @@ class BoxNode : public GeometryNode
 {
 
 public:
-    BoxNode();
+    BoxNode(std::string name = "BoxNode");
 
     void applySelf();
 };

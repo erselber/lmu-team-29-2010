@@ -6,7 +6,8 @@ HEADERS += node.h \
     transformnode.h \
     translatenode.h \
     scalenode.h \
-    rotatenode.h
+    rotatenode.h \
+    rootnode.h
 SOURCES += node.cpp \
     main.cpp \
     myglwidget.cpp \
@@ -16,5 +17,6 @@ SOURCES += node.cpp \
     transformnode.cpp \
     translatenode.cpp \
     scalenode.cpp \
-    rotatenode.cpp
+    rotatenode.cpp \
+    rootnode.cpp
 QT += opengl
