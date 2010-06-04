@@ -1,0 +1,14 @@
+INPUT(
+./debug\node.o
+./debug\main.o
+./debug\myglwidget.o
+./debug\scene.o
+./debug\boxnode.o
+./debug\geometrynode.o
+./debug\transformnode.o
+./debug\translatenode.o
+./debug\scalenode.o
+./debug\rotatenode.o
+./debug\rootnode.o
+./debug\moc_myglwidget.o
+);

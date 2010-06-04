@@ -1,0 +1,15 @@
+INPUT(
+./debug\translatenode.o
+./debug\transformnode.o
+./debug\scene.o
+./debug\scalenode.o
+./debug\rotatenode.o
+./debug\node.o
+./debug\myglwidget.o
+./debug\main.o
+./debug\geometrynode.o
+./debug\boxnode.o
+./debug\rootnode.o
+./debug\cameranode.o
+./debug\moc_myglwidget.o
+);
