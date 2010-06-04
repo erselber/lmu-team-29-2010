@@ -10,6 +10,7 @@ public:
 
 
     void applySelf();
+    void bing();
 
 };
 

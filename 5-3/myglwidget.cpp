@@ -138,15 +138,16 @@ void MyGLWidget::initializeSCENE()
         trans_r->addChild(rotate_r);
         rotate_r->addChild(box_r);
 
-        root->addChild(rotate_l);
-        rotate_l->addChild(trans_l);
-        trans_l->addChild(box_l);
-
 
         root->addChild(trans_m);
         trans_m->addChild(rotate_m);
         rotate_m->addChild(camera);
 
+
+
+        root->addChild(rotate_l);
+        rotate_l->addChild(trans_l);
+        trans_l->addChild(box_l);
 
 
 

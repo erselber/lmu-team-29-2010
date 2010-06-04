@@ -19,6 +19,8 @@ public:
 
     void applySelf();
 
+    void inverse();
+
     void setRotation(float grad,int axis);
 
 private:

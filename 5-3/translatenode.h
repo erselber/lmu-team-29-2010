@@ -19,7 +19,10 @@ public:
 
     void applySelf();
 
+    void inverse();
+
 protected:
+
     float x,y,z;
 };
 

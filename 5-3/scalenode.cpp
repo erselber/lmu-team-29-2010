@@ -7,3 +7,8 @@ void ScaleNode::applySelf(){
 
 }
 
+void ScaleNode::inverse(){
+
+    glScaled(1/x,1/y,1/z);
+}
+

@@ -9,6 +9,7 @@ Node::Node(std::string name){
 
     type = "Node";
     name = name;
+    //   parent = NULL;
 
 }
 
@@ -26,8 +27,6 @@ void Node::apply()
 
     for (unsigned int i = 0; i < children.size(); i++)
     {
-
-
 
         glPushMatrix();
         children[i]->apply();
@@ -50,7 +49,7 @@ void Node::applySelf()
 void Node::addChild(Node *child)
 {
     children.push_back(child);
-
+    child->setParent(this);
 }
 
 /******************************************************************************/
@@ -58,6 +57,7 @@ void Node::addChild(Node *child)
 void Node::setParent(Node* node)
 {
     parent = node;
+
 }
 
 /******************************************************************************/
@@ -89,4 +89,8 @@ Node* Node::getParent()
     return parent;
 }
 
+/******************************************************************************/
 
+void Node::inverse(){
+
+}

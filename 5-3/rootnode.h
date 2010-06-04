@@ -13,6 +13,7 @@ public:
 
     void applySelf();
 
+    void setCamera(CameraNode *camera);
 
 private:
     CameraNode *camera;

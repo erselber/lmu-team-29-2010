@@ -17,6 +17,9 @@ public:
     };
 
     void applySelf();
+
+    void inverse();
+
 private:
     float x,y,z;
 };

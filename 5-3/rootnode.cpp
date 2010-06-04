@@ -11,10 +11,21 @@ RootNode::RootNode(std::string name, CameraNode *camera)
     camera = camera;
 }
 
+
+/******************************************************************************/
+
+void RootNode::setCamera(CameraNode *camera)
+{
+    camera = camera;
+}
+
 /******************************************************************************/
 
 void RootNode::applySelf()
 {
+
+    camera->bing();
+
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }

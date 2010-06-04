@@ -26,6 +26,8 @@ public:
     void apply();
 
 
+    void inverse();
+
 protected:
 
     std::string name;

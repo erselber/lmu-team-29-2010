@@ -8,6 +8,7 @@ class TransformNode : public Node
 {
 public:
     TransformNode();
+
 };
 
 #endif // TRANSFORMNODE_H
