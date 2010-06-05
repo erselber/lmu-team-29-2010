@@ -8,8 +8,10 @@
 
 void RotateNode::applySelf()
 {
+    /******** AUSGABE DES TYPS IN DER KONSOLE ********/
     std::string na = this->getName();
     std::cout << "Node---------->: " << na << std::endl;
+    /*************************************************/
 
     glRotated(grad,x,y,z);
 

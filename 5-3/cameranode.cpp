@@ -2,34 +2,37 @@
 #include "transformnode.h"
 
 /**************************************************************************************/
+
 CameraNode::CameraNode(std::string name)
 {
     this->name = name;
     this->type = "CameraNode";
 
+    option = 0;
+
 
 }
-
 
 /**************************************************************************************/
 
 void CameraNode::applySelf()
 {
+
+    /******** AUSGABE DES TYPS IN DER KONSOLE ********/
     std::string na = this->getName();
     std::cout << "Node---------->: " << na << std::endl;
-
-   //gluLookAt ( 0., 0., 4., 0., 0., 0., 0., 1., 0.);
-
-
-
+    /*************************************************/
 
 }
 
 /**************************************************************************************/
+
 void CameraNode::bing(){
 
+    /******** AUSGABE DES TYPS IN DER KONSOLE ********/
     std::string na = this->getName();
     std::cout << "Node---------->: " << na << std::endl;
+    /*************************************************/
 
 
 
@@ -37,32 +40,36 @@ void CameraNode::bing(){
     glLoadIdentity();
     gluPerspective(45,1,1,1000);
 
-
-
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
 
-    if(this->getParent()->getType()!="RootNode")
+    // AUSWAHL zwischen LOOKAT oder INVERSE Berechnung der Kamera
+    switch(option)
     {
+        case 1: gluLookAt ( 0., 0., 4., 2., 0., 0., 0., 1., 0.);
+                break;
 
-        ((TransformNode*) this->getParent())->inverse();
+        case 2: gluLookAt ( 0., 0., 4., -2., 0., 0., 0., 1., 0.);
+                break;
 
+        default:
+                if(this->getParent()->getType()!="RootNode")
+                {
 
-    }
-
-
-
-    Node* sss =this->getParent();
-
-    while(sss->getType()!= "RootNode")
-    {
-        sss = sss->getParent();
-    }
-
-    (sss->getChildren()[0])->apply();
+                    ((TransformNode*) this->getParent())->inverse();
 
 
-    gluLookAt ( 0., 0., 4., 0., 0., 0., 0., 1., 0.);
+                }
+     }
 
 }
+
+/**************************************************************************************/
+
+void CameraNode::setLook(int op)
+{
+    option = op;
+}
+
+/**************************************************************************************/

@@ -12,7 +12,10 @@ public:
 
     void applySelf();
     void bing();
+    void setLook(int op);
 
+private:
+    int option;
 };
 
 #endif // CAMERANODE_H

@@ -4,8 +4,10 @@
 
 void TranslateNode::applySelf(){
 
+    /******** AUSGABE DES TYPS IN DER KONSOLE ********/
     std::string na = this->getName();
     std::cout << "Node---------->: " << na << std::endl;
+    /*************************************************/
 
     glTranslated(x,y,z);
 
@@ -29,9 +31,11 @@ void TranslateNode::inverse()
 }
 
 /******************************************************************************/
+
 void TranslateNode::setTranslation(int xx,int yy, int zz)
 {
     x = xx;
     y = yy;
     z = zz;
 }
+/******************************************************************************/

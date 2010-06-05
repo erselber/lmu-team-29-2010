@@ -9,7 +9,19 @@
 #include "scalenode.h"
 
 
+/*************************/
+  /** VARIABLEN NODES **/
+/*************************/
 Scene *scene;
+RootNode *root;
+ScaleNode *scale_r;
+TranslateNode *trans_m, *trans_r, *trans_l, *trans_center;
+RotateNode *rotate_l, *rotate_m, *rotate_center;
+BoxNode *box_l, *box_r, *box_m;
+
+
+/*************/
+
 /**************************************************************************************/
 
 
@@ -26,7 +38,7 @@ void MyGLWidget::initializeGL(){
 
 void MyGLWidget::resizeGL(int w, int h){
 
-    glViewport(0,0, 800,800);
+    glViewport(0,0, w,h);
 
 
 
@@ -51,44 +63,46 @@ void MyGLWidget::paintGL(){
 void MyGLWidget::initializeSCENE()
 {
 
-    RootNode *root = new RootNode();
-    TranslateNode *tnode = new TranslateNode(0,0,-10);
-    root->addChild(tnode);
+    root = new RootNode();
+    trans_center = new TranslateNode(0,0,-10);
+    rotate_center = new RotateNode(-20,1,0,0);
 
-    RotateNode *rnode = new RotateNode(-20,1,0,0);
-    tnode->addChild(rnode);
+    //Links Baum
+    trans_l = new TranslateNode(-5,0,0);
+    rotate_l = new RotateNode(45,0,1,0);
+    box_l = new BoxNode();
+    box_l->setColor(1,0,0);
 
-    TranslateNode *t2node = new TranslateNode(-5,0,0);
-    TranslateNode *t3node = new TranslateNode(0,0,0);
-    TranslateNode *t4node = new TranslateNode(5,0,0);
+    //Mitte Baum
+    trans_m = new TranslateNode(0,0,0);
+    rotate_m = new RotateNode(45,0,0,1);
+    box_m = new BoxNode();
+    box_m->setColor(0,1,0);
 
-    rnode->addChild(t2node);
-    rnode->addChild(t3node);
-    rnode->addChild(t4node);
-
-    RotateNode *r2node = new RotateNode(45,0,1,0);
-    t2node->addChild(r2node);
-
-    RotateNode *r3node = new RotateNode(45,0,0,1);
-    t3node->addChild(r3node);
-
-    ScaleNode *s4node = new ScaleNode(2,2,2);
-    t4node->addChild(s4node);
+    //Rechts Baum
+    trans_r = new TranslateNode(5,0,0);
+    scale_r = new ScaleNode(2,2,2);
+    box_r = new BoxNode();
+    box_r->setColor(0,0,1);
 
 
-    BoxNode *box1 = new BoxNode();
-    box1->setColor(1,1,1);
+    //Kinder einfuegen
 
-    r2node->addChild(box1);
+    root->addChild(trans_center);
+    trans_center->addChild(rotate_center);
 
+    rotate_center->addChild(trans_l);
+    rotate_center->addChild(trans_m);
+    rotate_center->addChild(trans_r);
 
-    BoxNode *box2 = new BoxNode();
-    box2->setColor(1,0,1);
-    r3node->addChild(box2);
+    trans_l->addChild(rotate_l);
+    trans_m->addChild(rotate_m);
+    trans_r->addChild(scale_r);
 
-    BoxNode *box3 = new BoxNode();
-    box3->setColor(0,0,1);
-    s4node->addChild(box3);
+    rotate_l->addChild(box_l);
+    rotate_m->addChild(box_m);
+    scale_r->addChild(box_r);
+
 
     scene = new Scene(root);
 }

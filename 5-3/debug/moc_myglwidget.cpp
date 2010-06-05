@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'myglwidget.h'
 **
-** Created: Thu 3. Jun 19:32:55 2010
+** Created: Sat 5. Jun 20:59:34 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MyGLWidget[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,13 +34,16 @@ static const uint qt_meta_data_MyGLWidget[] = {
       18,   12,   11,   11, 0x0a,
       31,   12,   11,   11, 0x0a,
       44,   12,   11,   11, 0x0a,
+      57,   11,   11,   11, 0x0a,
+      67,   11,   11,   11, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MyGLWidget[] = {
     "MyGLWidget\0\0value\0rotateX(int)\0"
-    "rotateY(int)\0rotateZ(int)\0"
+    "rotateY(int)\0rotateZ(int)\0setBlue()\0"
+    "setRed()\0"
 };
 
 const QMetaObject MyGLWidget::staticMetaObject = {
@@ -75,9 +78,11 @@ int MyGLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 0: rotateX((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: rotateY((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: rotateZ((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: setBlue(); break;
+        case 4: setRed(); break;
         default: ;
         }
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
 }
