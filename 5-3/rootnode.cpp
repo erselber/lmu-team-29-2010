@@ -1,14 +1,15 @@
 #include "rootnode.h"
+#include "transformnode.h"
 
 
 
 /******************************************************************************/
-RootNode::RootNode(std::string name, CameraNode *camera)
+RootNode::RootNode(std::string name)
 {
-    name = name;
-    type = "RootNode";
+    this->name = name;
+    this->type = "RootNode";
 
-    camera = camera;
+    //this->camera = NULL;
 }
 
 
@@ -16,7 +17,7 @@ RootNode::RootNode(std::string name, CameraNode *camera)
 
 void RootNode::setCamera(CameraNode *camera)
 {
-    camera = camera;
+   this->camera = camera;
 }
 
 /******************************************************************************/
@@ -24,8 +25,9 @@ void RootNode::setCamera(CameraNode *camera)
 void RootNode::applySelf()
 {
 
+    std::string na = this->getName();
+    std::cout << "Node---------->: " << na << std::endl;
+
     camera->bing();
 
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
 }

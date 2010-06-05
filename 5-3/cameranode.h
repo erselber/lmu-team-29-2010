@@ -2,6 +2,7 @@
 #define CAMERANODE_H
 
 #include "node.h"
+#include "string"
 
 class CameraNode : public Node
 {

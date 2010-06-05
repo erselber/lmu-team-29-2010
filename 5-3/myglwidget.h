@@ -12,15 +12,18 @@ class MyGLWidget : public QGLWidget
 public:
     MyGLWidget()
     {
-        x_axis = 0;
-        y_axis = 0;
-        z_axis = 0;
+        x_grad = 0;
+        y_grad = 0;
+        z_grad = 0;
     }
 
 public slots:
     void rotateX(int value);
     void rotateY(int value);
     void rotateZ(int value);
+
+    void setBlue(void);
+    void setRed(void);
 
 protected:
 
@@ -30,12 +33,13 @@ protected:
 
     void paintGL();
 
+    void contextMenuEvent(QContextMenuEvent *event);
 
 
 private:
     void initializeSCENE();
 
-    int x_axis,y_axis,z_axis;
+    int x_grad,y_grad,z_grad;
 
 };
 

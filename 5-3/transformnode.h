@@ -9,6 +9,7 @@ class TransformNode : public Node
 public:
     TransformNode();
 
+    virtual void inverse();
 };
 
 #endif // TRANSFORMNODE_H

@@ -6,26 +6,33 @@
 class RotateNode : public TransformNode
 {
 public:
-    RotateNode(float grad_t = 0, int xx = 0, int yy = 0, int zz = 0 ){
-
-        name = "RotateNode";
-        type = "RotateNode";
+    RotateNode(float grad_t = 0, int xx = 0, int yy = 0, int zz = 0,std::string name_t = "RotateNode" )
+    {
+        this->name = name_t;
+        this->type = "RotateNode";
 
         grad = grad_t;
         x = xx;
         y = yy;
         z = zz;
+
     };
 
     void applySelf();
 
     void inverse();
+    void setRotation(float grad_t,int axis);
 
-    void setRotation(float grad,int axis);
 
-private:
+
+
+protected:
     float grad;
     int x,y,z;
+
+    void RotateInverse(float grad_t,int xx,int yy, int zz);
+
+
 };
 
 #endif // ROTATENODE_H

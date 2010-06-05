@@ -4,9 +4,8 @@
 /******************************************************************************/
 BoxNode::BoxNode(std::string name)
 {
-    name = name;
-    type = "BoxNode";
-    parent = parent;
+    this->name = name;
+    this->type = "BoxNode";
 }
 
 /******************************************************************************/
@@ -15,6 +14,10 @@ BoxNode::BoxNode(std::string name)
 /******************************************************************************/
 void BoxNode::applySelf()
 {
+
+    std::string na = this->getName();
+    std::cout << "Node---------->: " << na << std::endl;
+
     glBegin(GL_QUADS);
 
             //vorne

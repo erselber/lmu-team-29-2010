@@ -1,12 +1,13 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include "rootnode.h"
 #include "node.h"
 
 class Scene
 {
 public:
-    Scene(Node *node){
+    Scene(RootNode *node){
         root = node;
     };
 
@@ -14,7 +15,7 @@ public:
 
 
 private:
-    Node *root;
+    RootNode *root;
 };
 
 #endif // SCENE_H

@@ -1,6 +1,7 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <iostream>
 #include <vector>
 #include <string>
 #include <GL/gl.h>
@@ -25,9 +26,6 @@ public:
 
     void apply();
 
-
-    void inverse();
-
 protected:
 
     std::string name;
@@ -39,6 +37,7 @@ protected:
     void setParent(Node*);
 
     virtual void applySelf();
+
 
 };
 

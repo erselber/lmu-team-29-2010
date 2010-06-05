@@ -8,7 +8,7 @@
 class RootNode : public Node
 {
 public:
-    RootNode(std::string name = "RootNode", CameraNode *camera = new CameraNode());
+    RootNode(std::string name = "RootNode");
 
 
     void applySelf();

@@ -6,10 +6,10 @@
 class ScaleNode : public TransformNode
 {
 public:
-    ScaleNode(float xx = 1,float yy = 1, float zz = 1){
+    ScaleNode(float xx = 1,float yy = 1, float zz = 1, std::string name_t = "ScaleNode"){
 
-        name = "ScaleNode";
-        type = "ScaleNode";
+        this->name = name_t;
+        this->type = "ScaleNode";
 
         x = xx;
         y = yy;

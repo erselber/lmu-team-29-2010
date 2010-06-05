@@ -21,9 +21,13 @@ MyWidget::MyWidget(QWidget *parent):QWidget(parent)
     QSlider *z_slider = new QSlider();
 
 
-    x_slider->setRange(0,360);
-    y_slider->setRange(0,360);
-    z_slider->setRange(0,360);
+    x_slider->setRange(-360,360);
+    y_slider->setRange(-360,360);
+    z_slider->setRange(-360,360);
+
+    x_slider->setSliderPosition(0);
+    y_slider->setSliderPosition(0);
+    z_slider->setSliderPosition(0);
 
     MyGLWidget *win = new MyGLWidget();
 

@@ -1,27 +1,22 @@
 #include "cameranode.h"
 #include "transformnode.h"
 
-#include <iostream>
-
 /**************************************************************************************/
 CameraNode::CameraNode(std::string name)
 {
-    name = name;
-    type = "CameraNode";
+    this->name = name;
+    this->type = "CameraNode";
+
 
 }
+
 
 /**************************************************************************************/
 
 void CameraNode::applySelf()
 {
-
-    /*
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(45,1,1,1000);
-*/
-
+    std::string na = this->getName();
+    std::cout << "Node---------->: " << na << std::endl;
 
    //gluLookAt ( 0., 0., 4., 0., 0., 0., 0., 1., 0.);
 
@@ -31,25 +26,43 @@ void CameraNode::applySelf()
 }
 
 /**************************************************************************************/
+void CameraNode::bing(){
 
-void CameraNode::bing()
-{
+    std::string na = this->getName();
+    std::cout << "Node---------->: " << na << std::endl;
+
+
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(45,1,1,1000);
 
-    //glTranslated(0,0,-4);
 
-    //parent->inverse();
 
-    std::cout << "Ausgabe Parent : " << parent->getName() << std::endl;
-    /*
-    Node *pointer;
-    pointer = parent->getParent();
-    pointer->inverse();
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
-    */
 
+    if(this->getParent()->getType()!="RootNode")
+    {
+
+        ((TransformNode*) this->getParent())->inverse();
+
+
+    }
+
+
+
+    Node* sss =this->getParent();
+
+    while(sss->getType()!= "RootNode")
+    {
+        sss = sss->getParent();
+    }
+
+    (sss->getChildren()[0])->apply();
+
+
+    gluLookAt ( 0., 0., 4., 0., 0., 0., 0., 1., 0.);
 
 }

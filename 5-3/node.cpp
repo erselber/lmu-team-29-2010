@@ -1,15 +1,14 @@
 #include "node.h"
 
-
 /******************************************************************************/
 /******************************************************************************/
 
 
 Node::Node(std::string name){
 
-    type = "Node";
-    name = name;
-    //   parent = NULL;
+    this->type = "Node";
+    this->name = name;
+    this->parent = NULL;
 
 }
 
@@ -48,8 +47,9 @@ void Node::applySelf()
 
 void Node::addChild(Node *child)
 {
-    children.push_back(child);
     child->setParent(this);
+    children.push_back(child);
+
 }
 
 /******************************************************************************/
@@ -65,32 +65,28 @@ void Node::setParent(Node* node)
 
 std::vector<Node*> Node::getChildren()
 {
-    return children;
+    return this->children;
 }
 
 /******************************************************************************/
 
 std::string Node::getName()
 {
-    return name;
+    return this->name;
 }
 
 /******************************************************************************/
 
 std::string Node::getType()
 {
-    return type;
+    return this->type;
 }
 
 /******************************************************************************/
 
 Node* Node::getParent()
 {
-    return parent;
+    return this->parent;
 }
 
 /******************************************************************************/
-
-void Node::inverse(){
-
-}

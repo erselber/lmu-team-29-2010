@@ -8,13 +8,15 @@
 #include "rotatenode.h"
 #include "scalenode.h"
 
+#include "qmenu.h"
+#include "QContextMenuEvent"
+#include "qlabel.h"
 
 //*************/
 
 Scene *scene;
 RotateNode *rotate_m;
-
-
+TranslateNode *trans_m;
 
 /*************/
 
@@ -27,6 +29,8 @@ void MyGLWidget::initializeGL(){
     glEnable(GL_CULL_FACE);
 
     initializeSCENE();
+
+    this->setContextMenuPolicy(Qt::DefaultContextMenu);
 }
 
 /**************************************************************************************/
@@ -49,10 +53,9 @@ void MyGLWidget::paintGL(){
     glClearColor(0,0,0,1);
 
 
-    rotate_m->setRotation(x_axis,0);
-    rotate_m->setRotation(y_axis,1);
-    rotate_m->setRotation(z_axis,2);
+    //rotate_m->setRotation(x_axis,1,0,0);
 
+    //trans_m->setTranslation(0,0,x_axis);
 
     scene->render();
 
@@ -64,7 +67,9 @@ void MyGLWidget::paintGL(){
 void MyGLWidget::rotateX(int value){
 
 
-        x_axis =  value;
+        x_grad =  value;
+        // Achse X = 1
+        rotate_m->setRotation(x_grad,0);;
         updateGL();
 }
 
@@ -73,7 +78,9 @@ void MyGLWidget::rotateX(int value){
 void MyGLWidget::rotateY(int value){
 
 
-        y_axis =  value;
+        y_grad =  value;
+        // Achse Y = 1
+        rotate_m->setRotation(y_grad,1);
         updateGL();
 }
 
@@ -81,8 +88,10 @@ void MyGLWidget::rotateY(int value){
 
 void MyGLWidget::rotateZ(int value){
 
+        z_grad = value;
 
-        z_axis = value;
+        // Achse Z = 2
+        rotate_m->setRotation(z_grad,2);
         updateGL();
 
 }
@@ -100,20 +109,20 @@ void MyGLWidget::initializeSCENE()
 
     /*** LINKS vom Scenegraph  ***/
 
-        RotateNode *rotate_l = new RotateNode(45,0,1,0);
-        TranslateNode *trans_l = new TranslateNode(-2,0,0);
+        RotateNode *rotate_l = new RotateNode(45,0,1,0,"Rotation Links");
+        TranslateNode *trans_l = new TranslateNode(-2,0,0, "Traslation Links");
 
-        BoxNode *box_l = new BoxNode();
+        BoxNode *box_l = new BoxNode("Box Links");
         box_l->setColor(1,0,0);
 
 
 
     /*** RECHTS vom Scenegraph ***/
 
-        TranslateNode *trans_r = new TranslateNode(2,0,0);
-        RotateNode *rotate_r = new RotateNode(45,0,1,0);
+        TranslateNode *trans_r = new TranslateNode(2,0,0,"Translation Rechts");
+        RotateNode *rotate_r = new RotateNode(45,0,1,0,"Rotation Rechts");
 
-        BoxNode *box_r = new BoxNode();
+        BoxNode *box_r = new BoxNode("Box Rechts");
         box_r->setColor(0,0,1);
 
 
@@ -121,22 +130,22 @@ void MyGLWidget::initializeSCENE()
 
     /*** MITTE vom Scenegraph ( KAMERA )  ***/
 
-        TranslateNode *trans_m = new TranslateNode(0,0,4);
+        trans_m = new TranslateNode(0,0,8,"Translation MITTE");
 
         //variabel
-        RotateNode *rotate_m = new RotateNode();
+        rotate_m = new RotateNode(0,0,0,0,"Rotation MITTE");
 
         CameraNode *camera = new CameraNode();
+
+        root->setCamera(camera);
+
 
 
     /**** Einfügen der Kinder ****/
 
-
-
-
-        root->addChild(trans_r);
-        trans_r->addChild(rotate_r);
-        rotate_r->addChild(box_r);
+        root->addChild(rotate_l);
+        rotate_l->addChild(trans_l);
+        trans_l->addChild(box_l);
 
 
         root->addChild(trans_m);
@@ -144,13 +153,43 @@ void MyGLWidget::initializeSCENE()
         rotate_m->addChild(camera);
 
 
+        root->addChild(trans_r);
+        trans_r->addChild(rotate_r);
+        rotate_r->addChild(box_r);
 
-        root->addChild(rotate_l);
-        rotate_l->addChild(trans_l);
-        trans_l->addChild(box_l);
 
 
 
     /*** Render Scenegraph  ***/
         scene = new Scene(root);
+}
+
+/**************************************************************************************/
+
+
+void MyGLWidget::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu* contextMenu = new QMenu( this );
+
+    contextMenu->addAction("&Blaue BOX",this,SLOT(setBlue(void)));
+    contextMenu->addAction("&Rote BOX",this,SLOT(setRed(void)));
+
+    contextMenu->exec( QCursor::pos() );
+    delete contextMenu;
+
+}
+
+/**************************************************************************************/
+void MyGLWidget::setBlue(){
+
+    rotate_m->setRotation(80,2);
+    updateGL();
+}
+
+/**************************************************************************************/
+void MyGLWidget::setRed(){
+
+    //rotate_m->setRotation(40,1);
+    gluLookAt(0,0,4,0,0,0,0,1,0);
+    updateGL();
 }
