@@ -83,10 +83,14 @@ void CameraNode::bing(){
 
         case 1:
 
-            gluLookAt ( matrix[12], matrix[13], matrix[14],((BoxNode*) node)->matrix[12],((BoxNode*) node)->matrix[13],((BoxNode*) node)->matrix[14], 0., 1., 0.);
+            GLfloat view1 = ((BoxNode*) node)->matrix[12] + matrix[12];
+            GLfloat view2 = ((BoxNode*) node)->matrix[13] + matrix[13];
+            GLfloat view3 = ((BoxNode*) node)->matrix[14] + matrix[14];
+
+            gluLookAt ( matrix[12], matrix[13], matrix[14],view1,view2,view3, 0., 1., 0.);
 
             std::cout << "Ausgabe Matrix1 :" <<  matrix[12] <<" , " << matrix[13] << " , " << matrix[14] << std::endl;
-            std::cout << "Ausgabe Matrix2 :" <<  ((BoxNode*) node)->matrix[12] <<" , " << ((BoxNode*) node)->matrix[13] << " , " << ((BoxNode*) node)->matrix[14] << std::endl;
+            std::cout << "Ausgabe Matrix2 :" <<  view1 <<" , " << view2 << " , " << view3 << std::endl;
 
      }
 
