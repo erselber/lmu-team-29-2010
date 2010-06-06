@@ -135,7 +135,7 @@ void MyGLWidget::initializeSCENE()
 
 void MyGLWidget::rotateX(int value){
 
-        camera->setLook(0);
+        camera->unLook();
         x_grad =  value;
         // Achse X = 1
         rotate_m->setRotation(x_grad,0);;
@@ -146,7 +146,7 @@ void MyGLWidget::rotateX(int value){
 
 void MyGLWidget::rotateY(int value){
 
-        camera->setLook(0);
+        camera->unLook();
         y_grad =  value;
         // Achse Y = 1
         rotate_m->setRotation(y_grad,1);
@@ -157,7 +157,7 @@ void MyGLWidget::rotateY(int value){
 
 void MyGLWidget::rotateZ(int value){
 
-        camera->setLook(0);
+        camera->unLook();
         z_grad = value;
 
         // Achse Z = 2
@@ -170,14 +170,14 @@ void MyGLWidget::rotateZ(int value){
 /**************************************************************************************/
 void MyGLWidget::setBlue(){
 
-    camera->setLook(1);
+    camera->setLook(box_r);
     updateGL();
 }
 
 /**************************************************************************************/
 void MyGLWidget::setRed(){
 
-    camera->setLook(2);
+    camera->setLook(box_l);
     updateGL();
 }
 

@@ -15,7 +15,6 @@ public:
         x = xx;
         y = yy;
         z = zz;
-
     };
 
     void applySelf();
@@ -24,14 +23,13 @@ public:
     void setRotation(float grad_t,int axis);
 
 
-
+    GLfloat matrix[16];
 
 protected:
     float grad;
     int x,y,z;
 
     void RotateInverse(float grad_t,int xx,int yy, int zz);
-
 
 };
 

@@ -6,6 +6,9 @@ BoxNode::BoxNode(std::string name)
 {
     this->name = name;
     this->type = "BoxNode";
+
+    unsave = true;
+
 }
 
 /******************************************************************************/
@@ -19,6 +22,11 @@ void BoxNode::applySelf()
     std::cout << "Node---------->: " << na << std::endl;
     /*************************************************/
 
+    if(unsave)
+    {
+        glGetFloatv(GL_MODELVIEW_MATRIX,matrix);
+        unsave = false;
+    }
     glBegin(GL_QUADS);
 
             //vorne

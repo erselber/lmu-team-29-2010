@@ -12,10 +12,17 @@ public:
 
     void applySelf();
     void bing();
-    void setLook(int op);
+    void setLook(Node *node);
+    void unLook();
+
+    GLfloat matrix[16];
 
 private:
     int option;
+    Node* node;
+
+    bool unsave;
+
 };
 
 #endif // CAMERANODE_H

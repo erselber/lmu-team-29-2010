@@ -23,3 +23,4 @@ SOURCES += translatenode.cpp \
     rootnode.cpp \
     cameranode.cpp
 QT += opengl
+CONFIG += console
