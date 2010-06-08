@@ -60,6 +60,7 @@ void CameraNode::bing(){
         glPushMatrix();
 
         child->apply();
+
         glGetFloatv(GL_MODELVIEW_MATRIX,this->matrix);
         std::cout << "<------ SCHLEIFE ---------->: " << std::endl;
 
