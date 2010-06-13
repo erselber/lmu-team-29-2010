@@ -4,7 +4,6 @@
 #include <QGLWidget>
 
 
-
 class MyGLWidget : public QGLWidget
 {
     Q_OBJECT

@@ -1,11 +1,6 @@
-HEADERS += cmodel3ds.h \
-    myglwidget.h
-SOURCES += cmodel3ds.cpp \
-    myglwidget.cpp \
-    main.cpp
+SOURCES += main.cpp \
+    myglwidget.cpp
+HEADERS += myglwidget.h
 
-QT +=opengl
-
-LIBS +=
-
-CONFIG += console
+QT += opengl
+LIBS += -l3ds
