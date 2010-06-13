@@ -15,8 +15,6 @@ public:
     {
     }
 
-void mouseMoveEvent(QMouseEvent *event);
-
 
 public slots:
             void rotateX(int value);
@@ -31,10 +29,6 @@ protected:
 
     void paintGL();
 
-    void swap(int i);
-
-
-
 private:
     float x_axis,y_axis,z_axis;
     QPoint lastPos;
@@ -42,4 +36,3 @@ private:
 };
 
 #endif // MYGLWIDGET_H
-

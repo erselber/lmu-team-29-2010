@@ -2,7 +2,7 @@
 
 #include "myglwidget.h"
 #include "QMouseEvent"
-#include "ctransform.h"
+#include "CTransform.h"
 #include "math.h"
 #include <iostream>
 
@@ -226,11 +226,15 @@ void MyGLWidget::swap(int i)
     /**** ENDE ****/
     case 12:
 
-
+            /*
             v_new[0] = 0 - loftPath[i];
             v_new[1] = 0 - loftPath[i+1];
             v_new[2] = 0 - loftPath[i+2];
+            */
 
+            v_new[0] = 0;
+            v_new[1] = 1;
+            v_new[0] = 0;
 
             nenner = sqrt(v_old[0]*v_old[0] + v_old[1]*v_old[1] + v_old[2]*v_old[2])
                      * sqrt(v_new[0]*v_new[0] + v_new[1]*v_new[1] + v_new[2]*v_new[2]);
@@ -239,13 +243,13 @@ void MyGLWidget::swap(int i)
 
 
             if((v_old[0]*v_new[1] - v_old[1]*v_new[0])>0)
-            {    winkel += acos(zaehler/nenner)/2;}
-            else { winkel += (-1)*acos(zaehler/nenner)/2;}
+            {    winkel += acos(zaehler/nenner)/2 * 180/PI;}
+            else { winkel += (-1)*acos(zaehler/nenner)/2*180/PI;}
 
             std::cout << "-------------------------------> WINKEL CASE 12 " << winkel << std::endl;
 
+            winkel -= 15;
             ct = new CTransform();
-
 
             ct->rotate(Z,winkel);
             ct->translate(X,loftPath[12]);
@@ -345,4 +349,16 @@ void MyGLWidget::rotateZ(int value){
 
 }
 
+/**************************************************************************************/
+void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    int dx = event->x() - lastPos.x();
+    int dy = event->y() - lastPos.y();
 
+
+    if (event->buttons() & Qt::LeftButton) {
+        rotateX(x_axis + 8 * dy);
+        rotateY(y_axis + 8 * dx);
+    }
+    lastPos = event->pos();
+}

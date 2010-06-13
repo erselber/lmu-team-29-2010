@@ -10,11 +10,11 @@
  </data>
  <data>
   <variable>RunConfiguration0-ProFile</variable>
-  <value type="QString">loft.pro</value>
+  <value type="QString">3ds.pro</value>
  </data>
  <data>
   <variable>RunConfiguration0-RunConfiguration.name</variable>
-  <value type="QString">loft</value>
+  <value type="QString">3ds</value>
  </data>
  <data>
   <variable>RunConfiguration0-UseDyldImageSuffix</variable>
@@ -58,6 +58,7 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <value key="QtVersionId" type="int">0</value>
    <value key="ToolChain" type="int">0</value>
+   <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
   </valuemap>
  </data>
@@ -66,6 +67,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <value key="QtVersionId" type="int">0</value>
+   <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">0</value>
   </valuemap>
  </data>
@@ -107,7 +109,7 @@
     <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1276422663.314653-462561394</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-2/loft.pro</value>
+    <value type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-3/3ds.pro</value>
     <value type="QString">-spec</value>
     <value type="QString">linux-g++</value>
     <value type="QString">-r</value>
@@ -115,7 +117,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/qmake-qt4</value>
    <value key="abstractProcess.enabled" type="bool">false</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-2</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-3</value>
   </valuemap>
  </data>
  <data>
@@ -161,7 +163,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-2</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-3</value>
   </valuemap>
  </data>
  <data>
