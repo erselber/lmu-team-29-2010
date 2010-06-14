@@ -16,6 +16,19 @@
 
 
 /**************************************************************************************/
+                    /*      STATISCHE METHODE    */
+/**************************************************************************************/
+static void qNormalizeAngle(int &angle)
+{
+    while (angle < 0)
+        angle += 360 * 16;
+    while (angle > 360 * 16)
+        angle -= 360 * 16;
+}
+/**************************************************************************************/
+
+
+/**************************************************************************************/
 /**************           CLASS CMODEL3DS                    **************************/
 /**************************************************************************************/
 
@@ -138,9 +151,13 @@ void CModel3DS::Draw() const
 {
         assert(m_TotalFaces != 0);
 
+
         // Enable vertex and normal arrays
         glEnableClientState(GL_VERTEX_ARRAY);
         glEnableClientState(GL_NORMAL_ARRAY);
+
+
+
 
         // Bind the vbo with the normals
         glBindBuffer(GL_ARRAY_BUFFER, m_NormalVBO);
@@ -149,6 +166,7 @@ void CModel3DS::Draw() const
 
         glBindBuffer(GL_ARRAY_BUFFER, m_VertexVBO);
         glVertexPointer(3, GL_FLOAT, 0, NULL);
+
 
         // Render the triangles
         glDrawArrays(GL_TRIANGLES, 0, m_TotalFaces * 3);
@@ -176,6 +194,11 @@ CModel3DS *object;
 
 void MyGLWidget::initializeGL(){
 
+
+    x_axis = 0;
+    y_axis = 0;
+    z_axis = 0;
+
     try
     {
             object = new CModel3DS("monkey.3ds");
@@ -186,14 +209,21 @@ void MyGLWidget::initializeGL(){
             exit(1);
     }
 
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_CULL_FACE);
+
+
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glShadeModel(GL_SMOOTH);
 
     // Enable lighting and set the position of the light
+
+    /*
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHTING);
     GLfloat pos[] = { 0.0, 4.0, 4.0 };
     glLightfv(GL_LIGHT0, GL_POSITION, pos);
+    */
 
     // Generate Vertex Buffer Objects
     object->CreateVBO();
@@ -204,7 +234,9 @@ void MyGLWidget::initializeGL(){
 
 void MyGLWidget::resizeGL(int w, int h){
 
-    glViewport(0,0, w,h);
+
+    glViewport(0, 0, w, h);
+
 
 
 
@@ -214,9 +246,8 @@ void MyGLWidget::resizeGL(int w, int h){
 
 void MyGLWidget::paintGL(){
 
-    //
-
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+
     glClearColor(0,0,0,1);
 
 
@@ -229,14 +260,16 @@ void MyGLWidget::paintGL(){
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    glTranslated(0,-2,-10);
+    glTranslated(0,0,-10);
 
     glRotated(x_axis,1,0,0);
     glRotated(y_axis,0,1,0);
     glRotated(z_axis,0,0,1);
 
+    glColor3f((1/x_axis),(1/y_axis),(1/z_axis));
     object->Draw();
 
+    std::cout << "------> Farben :" << x_axis << " , " << y_axis << " , " << z_axis << std::endl ;
 
 
 }
@@ -248,25 +281,52 @@ void MyGLWidget::paintGL(){
                /**  SLOTS SLOTS SLOTS  **/
 /**************************************************************************************/
 
-void MyGLWidget::rotateX(int value){
 
-        x_axis =  value;
+void MyGLWidget::setXRotation(int angle)
+{
+    qNormalizeAngle(angle);
+    if (angle != x_axis) {
+        x_axis = angle;
+        emit xRotationChanged(angle);
         updateGL();
+    }
 }
 
 /**************************************************************************************/
 
-void MyGLWidget::rotateY(int value){
-
-        y_axis =  value;
+void MyGLWidget::setYRotation(int angle)
+{
+    qNormalizeAngle(angle);
+    if (angle != y_axis) {
+        y_axis = angle;
+        emit yRotationChanged(angle);
         updateGL();
+    }
+}
+/**************************************************************************************/
+
+void MyGLWidget::setZRotation(int angle)
+{
+    qNormalizeAngle(angle);
+    if (angle != z_axis) {
+        z_axis = angle;
+        emit zRotationChanged(angle);
+        updateGL();
+    }
 }
 
 /**************************************************************************************/
+/**************************************************************************************/
 
-void MyGLWidget::rotateZ(int value){
-        z_axis = value;
-        updateGL();
+void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    int dx = event->x() - lastPos.x();
+    int dy = event->y() - lastPos.y();
 
+
+    if (event->buttons() & Qt::LeftButton) {
+        setXRotation(x_axis + 8 * dy);
+        setYRotation(y_axis + 8 * dx);
+    }
+    lastPos = event->pos();
 }
-

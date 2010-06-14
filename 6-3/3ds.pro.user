@@ -10,11 +10,11 @@
  </data>
  <data>
   <variable>RunConfiguration0-ProFile</variable>
-  <value type="QString">loft.pro</value>
+  <value type="QString">3ds.pro</value>
  </data>
  <data>
   <variable>RunConfiguration0-RunConfiguration.name</variable>
-  <value type="QString">loft</value>
+  <value type="QString">3ds</value>
  </data>
  <data>
   <variable>RunConfiguration0-UseDyldImageSuffix</variable>
@@ -109,7 +109,7 @@
     <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1276533797.638537-1148835150</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-2/loft.pro</value>
+    <value type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-3/3ds.pro</value>
     <value type="QString">-spec</value>
     <value type="QString">linux-g++</value>
     <value type="QString">-r</value>
@@ -117,7 +117,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/qmake-qt4</value>
    <value key="abstractProcess.enabled" type="bool">false</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-2</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-3</value>
   </valuemap>
  </data>
  <data>
@@ -163,13 +163,54 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-2</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-3</value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-Debug-cleanstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-RgvD4bNEzY,guid=b20c83ec989fe6a72fadcea04c165c26</value>
+    <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=de</value>
+    <value type="QString">GDM_LANG=de_DE.utf8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-jgC0zL</value>
+    <value type="QString">GNOME_KEYRING_PID=1306</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">HOME=/home/jet-lee</value>
+    <value type="QString">LANG=de_DE.utf8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=jet-lee</value>
+    <value type="QString">MANDATORY_PATH=/usr/share/gconf/gnome.mandatory.path</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-jet-lee</value>
+    <value type="QString">PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/jet-lee</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">SESSION_MANAGER=local/jet-lee-laptop:@/tmp/.ICE-unix/1324,unix/jet-lee-laptop:/tmp/.ICE-unix/1324</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=1358</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-jgC0zL/ssh</value>
+    <value type="QString">USER=jet-lee</value>
+    <value type="QString">USERNAME=jet-lee</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-jet-lee-PKzNbk/database</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=a38d231105e4e72f7c16cb1a4bfedd84-1276533797.638537-1148835150</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/jet-lee/erselber-lmu-team-29-2010/6-3</value>
    <value key="cleanConfig" type="bool">true</value>
    <valuelist key="makeargs" type="QVariantList">
     <value type="QString">clean</value>

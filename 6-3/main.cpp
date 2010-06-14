@@ -25,9 +25,9 @@ MyWidget::MyWidget(QWidget *parent):QWidget(parent)
        QSlider *z_slider = new QSlider();
 
 
-       x_slider->setRange(-360,360);
-       y_slider->setRange(-360,360);
-       z_slider->setRange(-360,360);
+       x_slider->setRange(0,360);
+       y_slider->setRange(0,360);
+       z_slider->setRange(0,360);
 
        x_slider->setSliderPosition(0);
        y_slider->setSliderPosition(0);
@@ -45,9 +45,14 @@ MyWidget::MyWidget(QWidget *parent):QWidget(parent)
 
 
 
-       connect(x_slider,SIGNAL(valueChanged(int)),win,SLOT(rotateX(int)));
-       connect(y_slider,SIGNAL(valueChanged(int)),win,SLOT(rotateY(int)));
-       connect(z_slider,SIGNAL(valueChanged(int)),win,SLOT(rotateZ(int)));
+       connect(x_slider, SIGNAL(valueChanged(int)), win, SLOT(setXRotation(int)));
+       connect(win, SIGNAL(xRotationChanged(int)), x_slider, SLOT(setValue(int)));
+       connect(y_slider, SIGNAL(valueChanged(int)), win, SLOT(setYRotation(int)));
+       connect(win, SIGNAL(yRotationChanged(int)), y_slider, SLOT(setValue(int)));
+       connect(z_slider, SIGNAL(valueChanged(int)), win, SLOT(setZRotation(int)));
+       connect(win, SIGNAL(zRotationChanged(int)), z_slider, SLOT(setValue(int)));
+
+
 
 
        setLayout(layout);

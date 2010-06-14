@@ -52,6 +52,20 @@ GLfloat loftPath[] = {
 
 CTransform *ct;
 
+
+
+/**************************************************************************************/
+                    /*      STATISCHE METHODE    */
+/**************************************************************************************/
+static void qNormalizeAngle(int &angle)
+{
+    while (angle < 0)
+        angle += 360 * 16;
+    while (angle > 360 * 16)
+        angle -= 360 * 16;
+}
+/**************************************************************************************/
+
 /**************************************************************************************/
 
 
@@ -94,9 +108,9 @@ void MyGLWidget::paintGL(){
     glTranslated(0,-2,-10);
     glScaled(0.5,0.5,0.5);
 
-    glRotated(x_axis,1,0,0);
-    glRotated(y_axis,0,1,0);
-    glRotated(z_axis,0,0,1);
+    glRotated(x_axis/16,1,0,0);
+    glRotated(y_axis/16,0,1,0);
+    glRotated(z_axis/16,0,0,1);
 
 
     // PFAD "den man nicht mehr sieht"
@@ -248,7 +262,7 @@ void MyGLWidget::swap(int i)
 
             std::cout << "-------------------------------> WINKEL CASE 12 " << winkel << std::endl;
 
-            winkel -= 15;
+            winkel -= 17;
             ct = new CTransform();
 
             ct->rotate(Z,winkel);
@@ -327,29 +341,43 @@ void MyGLWidget::swap(int i)
                /**  SLOTS SLOTS SLOTS  **/
 /**************************************************************************************/
 
-void MyGLWidget::rotateX(int value){
 
-        x_axis =  value;
+void MyGLWidget::setXRotation(int angle)
+{
+    qNormalizeAngle(angle);
+    if (angle != x_axis) {
+        x_axis = angle;
+        emit xRotationChanged(angle);
         updateGL();
+    }
 }
 
 /**************************************************************************************/
 
-void MyGLWidget::rotateY(int value){
-
-        y_axis =  value;
+void MyGLWidget::setYRotation(int angle)
+{
+    qNormalizeAngle(angle);
+    if (angle != y_axis) {
+        y_axis = angle;
+        emit yRotationChanged(angle);
         updateGL();
+    }
+}
+/**************************************************************************************/
+
+void MyGLWidget::setZRotation(int angle)
+{
+    qNormalizeAngle(angle);
+    if (angle != z_axis) {
+        z_axis = angle;
+        emit zRotationChanged(angle);
+        updateGL();
+    }
 }
 
 /**************************************************************************************/
-
-void MyGLWidget::rotateZ(int value){
-        z_axis = value;
-        updateGL();
-
-}
-
 /**************************************************************************************/
+
 void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
 {
     int dx = event->x() - lastPos.x();
@@ -357,8 +385,8 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
 
 
     if (event->buttons() & Qt::LeftButton) {
-        rotateX(x_axis + 8 * dy);
-        rotateY(y_axis + 8 * dx);
+        setXRotation(x_axis + 8 * dy);
+        setYRotation(y_axis + 8 * dx);
     }
     lastPos = event->pos();
 }

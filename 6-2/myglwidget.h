@@ -19,9 +19,15 @@ void mouseMoveEvent(QMouseEvent *event);
 
 
 public slots:
-            void rotateX(int value);
-            void rotateY(int value);
-            void rotateZ(int value);
+
+            void setXRotation(int angle);
+            void setYRotation(int angle);
+            void setZRotation(int angle);
+
+        signals:
+            void xRotationChanged(int angle);
+            void yRotationChanged(int angle);
+            void zRotationChanged(int angle);
 
 protected:
 

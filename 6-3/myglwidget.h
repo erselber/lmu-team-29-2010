@@ -16,9 +16,16 @@ public:
 
 
 public slots:
-            void rotateX(int value);
-            void rotateY(int value);
-            void rotateZ(int value);
+
+            void setXRotation(int angle);
+            void setYRotation(int angle);
+            void setZRotation(int angle);
+
+        signals:
+            void xRotationChanged(int angle);
+            void yRotationChanged(int angle);
+            void zRotationChanged(int angle);
+
 
 protected:
 
@@ -27,6 +34,8 @@ protected:
     void resizeGL(int w, int h);
 
     void paintGL();
+
+    void mouseMoveEvent(QMouseEvent *event);
 
 private:
     float x_axis,y_axis,z_axis;
