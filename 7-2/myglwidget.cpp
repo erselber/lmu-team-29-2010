@@ -38,10 +38,8 @@ void MyGLWidget::initializeGL(){
     //Licht    
 
     GLfloat LigthAmbient[] = {0.8,0.0,0.0,1.0};
-    GLfloat LigthDiffuse[] = {1.0,1.0,1.0,1.0};
-
-    //Letztes 1 damit Punktlicktquelle
-    GLfloat LigthPosition[] = {5.0,0.0,5.0,1};
+    GLfloat LigthDiffuse[] = {1.0,1.0,1.0,1.0};  
+    GLfloat LigthPosition[] = {5.0,0.0,5.0,1}; //Letztes 1 damit Punktlicktquelle
 
 
     //Licht aktivieren
