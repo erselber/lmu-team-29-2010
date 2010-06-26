@@ -149,8 +149,18 @@ void MyGLWidget::paintGL(){
     glRotated(z_axis,0,0,1);
 
 
+    /*****************************/
+    // Pyramide + TEXTUR
     initTextures_Pyramide();
+
+    glPushMatrix();
+
+    glTranslated(0,0.5,0);
     draw_Pyramide();
+
+    glPopMatrix();
+
+    /*****************************/
 
 
     initTextures_Cube();
@@ -158,15 +168,38 @@ void MyGLWidget::paintGL(){
     glPushMatrix();
     glTranslated(-2,0,0);
 
+
     draw_Cube();
     glPopMatrix();
 
+    /*****************************/
     // BOX 2
     glPushMatrix();
     glTranslated(2,0,0);
 
     draw_Cube();
     glPopMatrix();
+    /*****************************/
+
+    /*****************************/
+    // Ebene
+    glPushMatrix();
+
+    glTranslated(0,-0.5,0);
+
+    glBegin(GL_QUADS);
+
+    glNormal3f(0,1,0);
+
+    glVertex3f(-3,0,3);
+    glVertex3f(3,0,3);
+    glVertex3f(3,0,-3);
+    glVertex3f(-3,0,-3);
+
+    glEnd();
+
+    glPopMatrix();
+    /*****************************/
 
 }
 
