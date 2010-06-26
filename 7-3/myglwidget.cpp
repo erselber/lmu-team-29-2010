@@ -31,7 +31,7 @@ void MyGLWidget::initializeGL(){
     glEnable(GL_CULL_FACE);
 
 
-    dimm_grad = 0;
+    dimm_grad = 50;
 
     //Licht
 
@@ -39,8 +39,9 @@ void MyGLWidget::initializeGL(){
 
     /******************************************************/
 
-    GLfloat LigthDiffuse_0[] = {.9,.9,.9,.9};
-    GLfloat LigthAmbient_0[] = {.5,.5,.5};
+    // DIMMGRAD initialisieren ---> LIGTHDIFFUSE mit 1 //
+    GLfloat LigthDiffuse_0[] = {0.5,0.5,0.5,0.5};
+    GLfloat LigthAmbient_0[] = {0.2,0.2,0.2};
     GLfloat LigthPosition_0[] = {0,1,2,1}; //Letztes 1 damit Punktlicktquelle
 
 
@@ -57,12 +58,12 @@ void MyGLWidget::initializeGL(){
     /******************************************************/
 
     GLfloat LigthDiffuse_1[] = {0,0,1,1};
-    GLfloat LigthAmbient_1[] = {0.2,0.2,0.2};
-    GLfloat LigthPosition_1[] = {2,8,-8,1};
+    GLfloat LigthAmbient_1[] = {1,1,1};
+    GLfloat LigthPosition_1[] = {2,9,-3,1};
 
     GLfloat spotDirection_1[] = {0,-1,-1};
 
-        glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT1);
 
     glLightfv(GL_LIGHT1,GL_AMBIENT,LigthAmbient_1);
     glLightfv(GL_LIGHT1,GL_DIFFUSE,LigthDiffuse_1);
@@ -70,7 +71,7 @@ void MyGLWidget::initializeGL(){
 
     glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,spotDirection_1);
 
-    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF,10.);    	// set cutoff angle
+    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF,13.);    	// set cutoff angle
     glLightf(GL_LIGHT1, GL_SPOT_EXPONENT,2.0);   	// set focusing strength
 
 
@@ -79,8 +80,8 @@ void MyGLWidget::initializeGL(){
     /******************************************************/
 
     GLfloat LigthDiffuse_2[] = {1,0,0,1};
-    GLfloat LigthAmbient_2[] = {0.2,0.2,0.2};
-    GLfloat LigthPosition_2[] = {-2,8,-8,1};
+    GLfloat LigthAmbient_2[] = {1,1,1};
+    GLfloat LigthPosition_2[] = {-2,10,-3,1};
 
 
 
@@ -93,7 +94,7 @@ void MyGLWidget::initializeGL(){
 
     glLightfv(GL_LIGHT2,GL_SPOT_DIRECTION,spotDirection_2);
 
-    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF,10.0);    	// set cutoff angle
+    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF,13.0);    	// set cutoff angle
     glLightf(GL_LIGHT2, GL_SPOT_EXPONENT,2.0);   	// set focusing strength
 
 
@@ -245,9 +246,14 @@ void MyGLWidget::dimmen(int value)
 {
 
     if (value != dimm_grad) {
-        dimm_grad = value;
+        dimm_grad = ( (GLfloat)value / 100 );
 
-        std::cout << "Winkel = " << value << std::endl;
+
+        GLfloat LigthDiffuse[] = {dimm_grad,dimm_grad,dimm_grad,dimm_grad};
+
+        std::cout << "Wert DIMMGRAD ---------> " << dimm_grad << std::endl;
+        glLightfv(GL_LIGHT0,GL_DIFFUSE,LigthDiffuse);
+
 
         updateGL();
     }

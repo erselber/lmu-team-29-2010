@@ -20,10 +20,10 @@ MyWidget::MyWidget(QWidget *parent):QWidget(parent)
        QSlider *dimmer = new QSlider();
 
 
-       dimmer->setRange(0,50);
+       dimmer->setRange(0,100);
 
 
-       dimmer->setSliderPosition(0);
+       dimmer->setSliderPosition(50);
 
 
        MyGLWidget *win = new MyGLWidget();

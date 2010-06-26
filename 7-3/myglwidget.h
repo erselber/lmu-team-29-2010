@@ -33,7 +33,7 @@ protected:
     void paintGL();
 
 private:
-    int dimm_grad;
+    GLfloat dimm_grad;
 
 };
 
