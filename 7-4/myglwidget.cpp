@@ -73,7 +73,8 @@ void MyGLWidget::resizeGL(int w, int h){
 }
 
 /**************************************************************************************/
-void MyGLWidget::initTextures(){
+
+void MyGLWidget::initTextures_Cube(){
 
     QImage buf, qtex;
 
@@ -96,11 +97,35 @@ void MyGLWidget::initTextures(){
 }
 
 /**************************************************************************************/
+
+void MyGLWidget::initTextures_Pyramide(){
+
+    QImage buf, qtex;
+
+    buf.load("../Pyramid.png");
+
+    if(buf.isNull())
+    {
+        qDebug("could not load image");
+    }
+
+    qtex = QGLWidget::convertToGLFormat(buf);
+
+    glGenTextures(1,&texture_1[0]);
+    glBindTexture(GL_TEXTURE_2D, texture_1[0]);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, 3 , qtex.width(), qtex.height(),0,GL_RGBA, GL_UNSIGNED_BYTE, qtex.bits());
+
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+}
+/**************************************************************************************/
+
 void MyGLWidget::paintGL(){
 
     //
 
-    initTextures();
+    initTextures_Cube();
 
 
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -117,23 +142,28 @@ void MyGLWidget::paintGL(){
     glLoadIdentity();
 
 
-    glTranslated(0,0,-5);
+    glTranslated(0,0,-10);
 
     glRotated(x_axis,1,0,0);
     glRotated(y_axis,0,1,0);
     glRotated(z_axis,0,0,1);
 
 
+    initTextures_Pyramide();
+    draw_Pyramide();
+
+
+    initTextures_Cube();
     // BOX 1
     glPushMatrix();
-    glTranslated(-1,0,0);
+    glTranslated(-2,0,0);
 
     draw_Cube();
     glPopMatrix();
 
     // BOX 2
     glPushMatrix();
-    glTranslated(1,0,0);
+    glTranslated(2,0,0);
 
     draw_Cube();
     glPopMatrix();
@@ -228,6 +258,69 @@ void MyGLWidget::draw_Cube(){
 }
 
 
+/**************************************************************************************/
+
+void MyGLWidget::draw_Pyramide(){
+
+
+    glEnable(GL_TEXTURE_2D);
+
+    glBegin(GL_TRIANGLES);
+
+            // rechts
+
+            glTexCoord2f(0,0);
+            glVertex3f(1,-1,1);
+            glTexCoord2f(1,0);
+            glVertex3f(1,-1,-1);
+            glTexCoord2f(0.5,1);
+            glVertex3f(0,1,0);
+
+            // vorne
+
+            glTexCoord2f(0,0);
+            glVertex3f(-1,-1,1);
+            glTexCoord2f(1,0);
+            glVertex3f(1,-1,1);
+            glTexCoord2f(0.5,1);
+            glVertex3f(0,1,0);
+
+            // hinten
+
+            glTexCoord2f(0,0);
+            glVertex3f(1,-1,-1);
+            glTexCoord2f(1,0);
+            glVertex3f(-1,-1,-1);
+            glTexCoord2f(0.5,1);
+            glVertex3f(0,1,0);
+
+            //links
+
+            glTexCoord2f(0,0);
+            glVertex3f(-1,-1,-1);
+            glTexCoord2f(1,0);
+            glVertex3f(-1,-1,1);
+            glTexCoord2f(0.5,1);
+            glVertex3f(0,1,0);
+
+
+
+
+        glEnd();
+
+        glBegin(GL_QUADS);
+
+            //boden
+
+            glVertex3f(-1,-1,1);
+            glVertex3f(-1,-1,-1);
+            glVertex3f(1,-1,-1);
+            glVertex3f(1,-1,1);
+
+
+        glEnd();
+
+}
 /**************************************************************************************/
 /**************************************************************************************/
                /**  SLOTS SLOTS SLOTS  **/

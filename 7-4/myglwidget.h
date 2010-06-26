@@ -19,7 +19,12 @@ public:
 
     void draw_Cube();
 
-    void initTextures();
+    void draw_Pyramide();
+
+    void initTextures_Cube();
+
+    void initTextures_Pyramide();
+
 
 public slots:
         void setXRotation(int angle);
