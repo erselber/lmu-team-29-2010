@@ -177,7 +177,16 @@ void MyGLWidget::paintGL(){
     glPushMatrix();
     glTranslated(2,0,0);
 
+    glDisable(GL_LIGHTING);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+
+    glColor4f(1,1,1,.5);
     draw_Cube();
+
+   // glEnable(GL_LIGHTING);
+    //glDisable(GL_BLEND);
+
     glPopMatrix();
     /*****************************/
 
@@ -185,16 +194,24 @@ void MyGLWidget::paintGL(){
     // Ebene
     glPushMatrix();
 
+    glColor4f(1,1,1,1);
     glTranslated(0,-0.5,0);
 
     glBegin(GL_QUADS);
 
     glNormal3f(0,1,0);
-
     glVertex3f(-3,0,3);
     glVertex3f(3,0,3);
     glVertex3f(3,0,-3);
     glVertex3f(-3,0,-3);
+
+    glNormal3f(0,-1,0);
+    glVertex3f(-3,0,3);
+    glVertex3f(-3,0,-3);
+    glVertex3f(3,0,-3);
+    glVertex3f(3,0,3);
+
+
 
     glEnd();
 
