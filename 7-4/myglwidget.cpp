@@ -78,7 +78,13 @@ void MyGLWidget::initTextures_Cube(){
 
     QImage buf, qtex;
 
-    buf.load("../Box.png");
+    #ifdef _WIN32
+        buf.load("../Box.png");
+    #else
+         buf.load("Box.png");
+    #endif
+
+
 
     if(buf.isNull())
     {
@@ -102,7 +108,11 @@ void MyGLWidget::initTextures_Pyramide(){
 
     QImage buf, qtex;
 
-    buf.load("../Pyramid.png");
+    #ifdef _WIN32
+        buf.load("../Pyramid.png");
+    #else
+         buf.load("Pyramid.png");
+    #endif
 
     if(buf.isNull())
     {
