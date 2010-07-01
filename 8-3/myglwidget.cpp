@@ -1,4 +1,4 @@
-#define PI 3.14159
+   #define PI 3.14159
 
 #include "myglwidget.h"
 #include "math.h"
@@ -30,6 +30,10 @@ GLfloat laenge;
 
 int i;
 
+
+GLfloat vertex_array[480];
+GLfloat normal_array[480];
+
 /**************************************************************************************/
 /**************************************************************************************/
 
@@ -60,6 +64,7 @@ void MyGLWidget::initializeGL(){
     z_axis = 0;
 
 
+
     /*************************************/
     //Licht
 
@@ -81,6 +86,7 @@ void MyGLWidget::initializeGL(){
     /****************************************/
 
 
+    drawSphere(2,5,8);
 
 }
 
@@ -126,8 +132,15 @@ void MyGLWidget::paintGL(){
 
 
 
-    drawSphere(2,5,8);
 
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+
+    glVertexPointer(3,GL_FLOAT,0,vertex_array);
+
+    glDrawArrays(GL_QUADS,0,480);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
 
 }
 
@@ -135,6 +148,7 @@ void MyGLWidget::paintGL(){
 void MyGLWidget::drawSphere(double r, int lats, int longs) {
       int i, j;
 
+      int k = 0;
       for(i = 0; i <= lats; i++) {
           double lat0 = PI * (-0.5 + (double) (i - 1) / lats);
           double z0  = sin(lat0);
@@ -145,18 +159,63 @@ void MyGLWidget::drawSphere(double r, int lats, int longs) {
           double z1 = sin(lat1);
           double zr1 = cos(lat1);
 
-          glBegin(GL_QUAD_STRIP);
+
           for(j = 0; j <= longs; j++) {
               double lng = 2 * PI * (double) (j - 1) / longs;
               double x = cos(lng);
               double y = sin(lng);
 
+              double lng_2 = 2 * PI * (double) j / longs;
+              double x_2 = cos(lng_2);
+              double y_2 = sin(lng_2);
+
+              /*
               glNormal3f(x * zr0, y * zr0, z0);
               glVertex3f(x * zr0, y * zr0, z0);
               glNormal3f(x * zr1, y * zr1, z1);
               glVertex3f(x * zr1, y * zr1, z1);
+              */
+
+              vertex_array[k] = x*zr0;
+              vertex_array[k+1] = y*zr0;
+              vertex_array[k+2] = z0;
+
+              vertex_array[k+3] = x*zr1;
+              vertex_array[k+4] = y*zr1;
+              vertex_array[k+5] = z1;
+
+              vertex_array[k+6] = x_2*zr1;
+              vertex_array[k+7] = y_2*zr1;
+              vertex_array[k+8] = z1;
+
+              vertex_array[k+9] = x_2*zr0;
+              vertex_array[k+10] = y_2*zr0;
+              vertex_array[k+11] = z0;
+
+
+
+
+              normal_array[k] = x*zr0;
+              normal_array[k+1] = y*zr0;
+              normal_array[k+2] = z0;
+
+              normal_array[k+3] = x*zr1;
+              normal_array[k+4] = y*zr1;
+              normal_array[k+5] = z1;
+
+              normal_array[k+6] = x_2*zr1;
+              normal_array[k+7] = y_2*zr1;
+              normal_array[k+8] = z1;
+
+              normal_array[k+9] = x_2*zr0;
+              normal_array[k+10] = y_2*zr0;
+              normal_array[k+11] = z0;
+
+
+
+
+              k+=12;
           }
-          glEnd();
       }
   }
 /**************************************************************************************/
