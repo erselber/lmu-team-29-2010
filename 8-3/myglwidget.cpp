@@ -11,16 +11,9 @@
   /** VARIABLEN  **/
 /*************************/
 
-GLfloat pfad[] = {1,0,1,
-                 4,2,4,
-                 8,3,1,
-                 3,4,-3,
-                 5,2,8, //-------------
-               };
-
-
 GLfloat time_counter;
-GLfloat time_old;
+
+
 
 GLfloat xx;
 GLfloat yy;
@@ -30,9 +23,25 @@ GLfloat laenge;
 
 int i;
 
+int schicht = 5;
+int sektor = 8;
+GLfloat vertex_array[648]; // => schicht * sector * 3 (PUNKT)
+GLfloat cube[648];
+GLfloat bing[648];
 
-GLfloat vertex_array[480];
-GLfloat normal_array[480];
+
+GLfloat vertices[] = {
+            -1,-1,1,
+            1,-1,1,
+            1,1,1,
+            -1,1,1,
+            1,-1,-1,
+            -1,-1,-1,
+            -1,1,-1,
+            1,1,-1
+
+     };
+
 
 /**************************************************************************************/
 /**************************************************************************************/
@@ -41,7 +50,7 @@ GLfloat normal_array[480];
 void MyGLWidget::initializeGL(){
 
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
 
     glShadeModel(GL_FLAT);
 
@@ -49,13 +58,11 @@ void MyGLWidget::initializeGL(){
 
     QTimer *internalTimer = new QTimer( this ); // create internal timer
     connect( internalTimer, SIGNAL(timeout()), SLOT(updateGL()) );
-    internalTimer->start(10);
+    internalTimer->start(1000);
 
     /****************************/
 
     time_counter = 0; // Aktuelle Zeit t
-    time_old = 0; // Zeitpunkt t0
-    i = 0;
 
     /****************************/
 
@@ -64,13 +71,12 @@ void MyGLWidget::initializeGL(){
     z_axis = 0;
 
 
-
     /*************************************/
     //Licht
 
     GLfloat LigthDiffuse_0[] = {.9,.9,.9,.9};
-    GLfloat LigthAmbient_0[] = {.2,.2,.2};
-    GLfloat LigthPosition_0[] = {0,8,-4,1}; //Letztes 1 damit Punktlicktquelle
+    GLfloat LigthAmbient_0[] = {.8,.8,.8};
+    GLfloat LigthPosition_0[] = {0,1,0,1}; //Letztes 1 damit Punktlicktquelle
 
 
     //Licht aktivieren
@@ -86,8 +92,18 @@ void MyGLWidget::initializeGL(){
     /****************************************/
 
 
-    drawSphere(2,5,8);
+    drawSphere(1,schicht,sektor);
 
+
+    /*
+    for(int i=0;i<(sizeof(vertex_array)/4);i++)
+    {
+        std::cout << " Array[" << i << "] = " << cube[i] << std::endl;
+
+        bing[i] = vertex_array[i];
+    }
+
+    */
 }
 
 /**************************************************************************************/
@@ -130,17 +146,61 @@ void MyGLWidget::paintGL(){
 
 
 
+    for(int i=0;i<(sizeof(vertex_array)/4);i+=3)
+    {
+
+        GLfloat vector[] = { cube[i]-vertex_array[i], cube[i+1]-vertex_array[i+1], cube[i+2]-vertex_array[i+2]};
+
+        //Laenge des Vectors + time_old (t0) == ist der Zeitpunkt t1
+        laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
+
+
+        if( ((round(bing[i] * 10) / 10)!= cube[i]) |
+            ((round(bing[i+1] * 10) / 10)!= cube[i+1]) |
+            ((round(bing[i+2] * 10) / 10)!= cube[i+2]))
+        /*if( (round(bing[i])!=cube[i]) |
+            (round(bing[i+1])!=cube[i+1]) |
+                    (round(bing[i+2])!=cube[i+2]))*/
+        {
+            GLfloat time = (time_counter)/(laenge); //-time_old
+
+
+
+            bing[i] = vertex_array[i] + time * (cube[i]-vertex_array[i]);
+            bing[i+1] = vertex_array[i+1] + time * (cube[i+1]-vertex_array[i+1]);
+            bing[i+2] = vertex_array[i+2] + time * (cube[i+2]-vertex_array[i+2]);
+
+           /* std::cout << " x: " << bing[i] << " y: " <<
+                    bing[i+1] << " z: " << bing[i+2]
+                    << " Laenge: " << laenge << " Counter: "<< i<< std::endl;*/
+
+
+        }
+    }
 
 
 
 
+    time_counter+=0.1;
+
+
+
+    glEnableClientState(GL_NORMAL_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
 
-    glVertexPointer(3,GL_FLOAT,0,vertex_array);
 
-    glDrawArrays(GL_QUADS,0,480);
+    glNormalPointer(GL_FLOAT,0,cube);
+    glVertexPointer(3,GL_FLOAT,0,cube);
 
+    //192
+    glDrawArrays(GL_QUADS,0,648);
+
+    glDisableClientState(GL_NORMAL_ARRAY);
     glDisableClientState(GL_VERTEX_ARRAY);
+
+
+
+
 
 }
 
@@ -154,7 +214,7 @@ void MyGLWidget::drawSphere(double r, int lats, int longs) {
           double z0  = sin(lat0);
           double zr0 =  cos(lat0);
 
-          //
+
           double lat1 = PI * (-0.5 + (double) i / lats);
           double z1 = sin(lat1);
           double zr1 = cos(lat1);
@@ -169,12 +229,6 @@ void MyGLWidget::drawSphere(double r, int lats, int longs) {
               double x_2 = cos(lng_2);
               double y_2 = sin(lng_2);
 
-              /*
-              glNormal3f(x * zr0, y * zr0, z0);
-              glVertex3f(x * zr0, y * zr0, z0);
-              glNormal3f(x * zr1, y * zr1, z1);
-              glVertex3f(x * zr1, y * zr1, z1);
-              */
 
               vertex_array[k] = x*zr0;
               vertex_array[k+1] = y*zr0;
@@ -192,31 +246,51 @@ void MyGLWidget::drawSphere(double r, int lats, int longs) {
               vertex_array[k+10] = y_2*zr0;
               vertex_array[k+11] = z0;
 
+              std::cout << " Ausgabe: z0 = " << z0 << " || zr0 = " << zr0 << " || x = "
+                      << x << " || y = " << y << std::endl;
 
 
 
-              normal_array[k] = x*zr0;
-              normal_array[k+1] = y*zr0;
-              normal_array[k+2] = z0;
+                /*
+              cube[k] = x*zr0;
+              cube[k+1] = y*zr0;
+              cube[k+2] = z0;
 
-              normal_array[k+3] = x*zr1;
-              normal_array[k+4] = y*zr1;
-              normal_array[k+5] = z1;
+              cube[k+3] = x*zr1;
+              cube[k+4] = y*zr1;
+              cube[k+5] = z1;
 
-              normal_array[k+6] = x_2*zr1;
-              normal_array[k+7] = y_2*zr1;
-              normal_array[k+8] = z1;
+              cube[k+6] = x_2*zr1;
+              cube[k+7] = y_2*zr1;
+              cube[k+8] = z1;
 
-              normal_array[k+9] = x_2*zr0;
-              normal_array[k+10] = y_2*zr0;
-              normal_array[k+11] = z0;
+              cube[k+9] = x_2*zr0;
+              cube[k+10] = y_2*zr0;
+              cube[k+11] = z0;
+              */
 
+              cube[k] = x;
+              cube[k+1] = y;
+              cube[k+2] = z0;
 
+              cube[k+3] = x;
+              cube[k+4] = y;
+              cube[k+5] = z1;
 
+              cube[k+6] = x_2;
+              cube[k+7] = y_2;
+              cube[k+8] = z1;
+
+              cube[k+9] = x_2;
+              cube[k+10] = y_2;
+              cube[k+11] = z0;
 
               k+=12;
+
+
           }
       }
+
   }
 /**************************************************************************************/
 /**************************************************************************************/
