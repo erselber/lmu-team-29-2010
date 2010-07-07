@@ -7,7 +7,7 @@ class Quaternion
 
 
 public:
-    Quaternion(double alpha, float vector[3]);
+    Quaternion(float alpha, float vector[3]);
 
 
     void multiply(Quaternion *q1, Quaternion *q2);

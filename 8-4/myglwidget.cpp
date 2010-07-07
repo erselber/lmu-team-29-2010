@@ -73,8 +73,8 @@ void MyGLWidget::initializeGL(){
  /****************************************/
 
 
- q1 = new Quaternion(0, x_vector);
- q2 = new Quaternion(0, z_vector);
+ q1 = new Quaternion(10, x_vector);
+ q2 = new Quaternion(10, x_vector);
 
 
 }
@@ -114,8 +114,8 @@ void MyGLWidget::paintGL(){
  glLoadIdentity();
 
 
- glTranslated(0,0,-5);
 
+ glTranslated(0,0,-5);
 
  GLfloat matrix[16];
  glGetFloatv(GL_MODELVIEW_MATRIX,matrix);
@@ -125,8 +125,8 @@ void MyGLWidget::paintGL(){
 
  draw_Cube();
 
-
  q1->multiply(q1,q2);
+
 
 }
 /**************************************************************************************/
@@ -134,56 +134,61 @@ void MyGLWidget::paintGL(){
 void MyGLWidget::draw_Cube(){
 
     glBegin(GL_QUADS);
+                //glNormal3f(normalen[0],normalen[1],normalen[2]);
 
-            //vorne
-            //glNormal3f(normalen[0],normalen[1],normalen[2]);
-            glColor3f(1,0,0);
-            glVertex3f(-0.5,-0.5,0.5);
-            glVertex3f(0.5,-0.5,0.5);
-            glVertex3f(0.5,0.5,0.5);
-            glVertex3f(-0.5,0.5,0.5);
+                glColor3f(1,0,0);
 
-            //hinten
-            //glNormal3f(normalen[3],normalen[4],normalen[5]);
-            //glColor3f(0,1,0);
-            glVertex3f(-0.5,-0.5,-0.5);
-            glVertex3f(-0.5,0.5,-0.5);
-            glVertex3f(0.5,0.5,-0.5);
-            glVertex3f(0.5,-0.5,-0.5);
+                glVertex3f(-0.5,-0.5,0.5);
+                glVertex3f(0.5,-0.5,0.5);
+                glVertex3f(0.5,0.5,0.5);
+                glVertex3f(-0.5,0.5,0.5);
 
-            //rechts
-            //glNormal3f(normalen[6],normalen[7],normalen[8]);
-            glColor3f(0,0,1);
-            glVertex3f(0.5,-0.5,0.5);
-            glVertex3f(0.5,-0.5,-0.5);
-            glVertex3f(0.5,0.5,-0.5);
-            glVertex3f(0.5,0.5,0.5);
+                //hinten
+                //glNormal3f(normalen[3],normalen[4],normalen[5]);
+                glColor3f(0,0,1);
 
-            //links
-            //glNormal3f(normalen[9],normalen[10],normalen[11]);
-            glColor3f(1,0,1);
-            glVertex3f(-0.5,-0.5,-0.5);
-            glVertex3f(-0.5,-0.5,0.5);
-            glVertex3f(-0.5,0.5,0.5);
-            glVertex3f(-0.5,0.5,-0.5);
+                glVertex3f(-0.5,-0.5,-0.5);
+                glVertex3f(-0.5,0.5,-0.5);
+                glVertex3f(0.5,0.5,-0.5);
+                glVertex3f(0.5,-0.5,-0.5);
 
-            //oben
-            //glNormal3f(normalen[12],normalen[13],normalen[14]);
-            glColor3f(1,1,0);
-            glVertex3f(-0.5,0.5,0.5);
-            glVertex3f(0.5,0.5,0.5);
-            glVertex3f(0.5,0.5,-0.5);
-            glVertex3f(-0.5,0.5,-0.5);
+                //rechts
+                //glNormal3f(normalen[6],normalen[7],normalen[8]);
+                glColor3f(0,1,0);
 
-            //unten
-            //glNormal3f(normalen[15],normalen[16],normalen[17]);;
-            glColor3f(0,1,1);
-            glVertex3f(0.5,-0.5,-0.5);
-            glVertex3f(0.5,-0.5,0.5);
-            glVertex3f(-0.5,-0.5,0.5);
-            glVertex3f(-0.5,-0.5,-0.5);
+                glVertex3f(0.5,-0.5,0.5);
+                glVertex3f(0.5,-0.5,-0.5);
+                glVertex3f(0.5,0.5,-0.5);
+                glVertex3f(0.5,0.5,0.5);
 
-         glEnd();
+                //links
+                //glNormal3f(normalen[9],normalen[10],normalen[11]);
+                glColor3f(1,0,1);
+
+                glVertex3f(-0.5,-0.5,-0.5);
+                glVertex3f(-0.5,-0.5,0.5);
+                glVertex3f(-0.5,0.5,0.5);
+                glVertex3f(-0.5,0.5,-0.5);
+
+                //oben
+                //glNormal3f(normalen[12],normalen[13],normalen[14]);
+                glColor3f(1,1,0);
+
+                glVertex3f(-0.5,0.5,0.5);
+                glVertex3f(0.5,0.5,0.5);
+                glVertex3f(0.5,0.5,-0.5);
+                glVertex3f(-0.5,0.5,-0.5);
+
+                //unten
+                //glNormal3f(normalen[15],normalen[16],normalen[17]);;
+                glColor3f(0,1,1);
+
+                glVertex3f(0.5,-0.5,-0.5);
+                glVertex3f(0.5,-0.5,0.5);
+                glVertex3f(-0.5,-0.5,0.5);
+                glVertex3f(-0.5,-0.5,-0.5);
+
+             glEnd();
 
 }
 

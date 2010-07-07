@@ -3,7 +3,7 @@
 #include "quaternion.h"
 #include "math.h"
 
-Quaternion::Quaternion(double alpha, float vector[3])
+Quaternion::Quaternion(float alpha, float vector[3])
 {
 
     alpha = (2.0*PI/(360.0*2.0))* alpha;
@@ -27,8 +27,8 @@ Quaternion::Quaternion(double alpha, float vector[3])
     }
 
 
-    double c = cos(alpha);
-    double s = sin(alpha);
+    float c = cos(alpha);
+    float s = sin(alpha);
     coords[0] = c;
     coords[1] = vector[0] * s;
     coords[2] = vector[1] * s;
