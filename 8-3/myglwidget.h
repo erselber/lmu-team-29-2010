@@ -41,6 +41,8 @@ protected:
 private:
 
     void drawSphere(double r, int lats, int longs);
+    void getCube(GLfloat x, int i);
+
     float x_axis,y_axis,z_axis;
     QPoint lastPos;
 

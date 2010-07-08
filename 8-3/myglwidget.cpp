@@ -23,10 +23,11 @@ GLfloat laenge;
 
 int i;
 
+bool switcher = true;
 int schicht = 5;
 int sektor = 8;
 GLfloat vertex_array[648]; // => schicht * sector * 3 (PUNKT)
-GLfloat cube[648];
+GLfloat cube[3];
 GLfloat bing[648];
 
 
@@ -94,16 +95,6 @@ void MyGLWidget::initializeGL(){
 
     drawSphere(1,schicht,sektor);
 
-
-    /*
-    for(int i=0;i<(sizeof(vertex_array)/4);i++)
-    {
-        std::cout << " Array[" << i << "] = " << cube[i] << std::endl;
-
-        bing[i] = vertex_array[i];
-    }
-
-    */
 }
 
 /**************************************************************************************/
@@ -145,38 +136,78 @@ void MyGLWidget::paintGL(){
     glRotated(z_axis,0,0,1);
 
 
-
-    for(int i=0;i<(sizeof(vertex_array)/4);i+=3)
+    if(switcher)
     {
-
-        GLfloat vector[] = { cube[i]-vertex_array[i], cube[i+1]-vertex_array[i+1], cube[i+2]-vertex_array[i+2]};
-
-        //Laenge des Vectors + time_old (t0) == ist der Zeitpunkt t1
-        laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
-
-
-        if( ((round(bing[i] * 10) / 10)!= cube[i]) |
-            ((round(bing[i+1] * 10) / 10)!= cube[i+1]) |
-            ((round(bing[i+2] * 10) / 10)!= cube[i+2]))
-        /*if( (round(bing[i])!=cube[i]) |
-            (round(bing[i+1])!=cube[i+1]) |
-                    (round(bing[i+2])!=cube[i+2]))*/
+        for(int i=0;i<(sizeof(vertex_array)/4);i+=3)
         {
-            GLfloat time = (time_counter)/(laenge); //-time_old
+
+
+            getCube(vertex_array[i],0);
+            getCube(vertex_array[i+1],1);
+            getCube(vertex_array[i+2],2);
+
+            GLfloat vector[] = { cube[0]-vertex_array[i], cube[1]-vertex_array[i+1], cube[2]-vertex_array[i+2]};
+
+            //Laenge des Vectors + time_old (t0) == ist der Zeitpunkt t1
+            laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
+
+
+            if( ((round(bing[i] * 10) / 10)!= cube[0]) |
+                ((round(bing[i+1] * 10) / 10)!= cube[1]) |
+                ((round(bing[i+2] * 10) / 10)!= cube[2]))
+            {
+                GLfloat time = (time_counter)/(laenge); //-time_old
+
+
+                bing[i] = vertex_array[i] + time * (cube[0]-vertex_array[i]);
+                bing[i+1] = vertex_array[i+1] + time * (cube[1]-vertex_array[i+1]);
+                bing[i+2] = vertex_array[i+2] + time * (cube[2]-vertex_array[i+2]);
+
+               /* std::cout << " x: " << bing[i] << " y: " <<
+                        bing[i+1] << " z: " << bing[i+2]
+                        << " Laenge: " << laenge << " Counter: "<< i<< std::endl;*/
+
+            }
+        }
+        else{
+
+
+            for(int i=0;i<(sizeof(vertex_array)/4);i+=3)
+            {
+
+
+                GLfloat vector[] = {vertex_array[i]-bing[i], vertex_array[i+1]-bing[i+1], vertex_array[i+2]-bing[i+2]};
+
+                //Laenge des Vectors + time_old (t0) == ist der Zeitpunkt t1
+                laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
+
+
+                if( ((round(bing[i] * 10) / 10)!= vertex_array[i]) |
+                    ((round(bing[i+1] * 10) / 10)!= vertex_array[i+1]) |
+                    ((round(bing[i+2] * 10) / 10)!= vertex_array[i+2]))
+                {
+                    GLfloat time = (time_counter)/(laenge); //-time_old
+
+
+                    bing[i] += time * (vertex_array[i]-bing[i]);
+                    bing[i+1] += time * (vertex_array[i+1]-bing[i+1]);
+                    bing[i+2] += time * (vertex_array[i+2]-bing[i+2]);
+
+                   /* std::cout << " x: " << bing[i] << " y: " <<
+                            bing[i+1] << " z: " << bing[i+2]
+                            << " Laenge: " << laenge << " Counter: "<< i<< std::endl;*/
+
+                }
 
 
 
-            bing[i] = vertex_array[i] + time * (cube[i]-vertex_array[i]);
-            bing[i+1] = vertex_array[i+1] + time * (cube[i+1]-vertex_array[i+1]);
-            bing[i+2] = vertex_array[i+2] + time * (cube[i+2]-vertex_array[i+2]);
 
-           /* std::cout << " x: " << bing[i] << " y: " <<
-                    bing[i+1] << " z: " << bing[i+2]
-                    << " Laenge: " << laenge << " Counter: "<< i<< std::endl;*/
+
+
+
 
 
         }
-    }
 
 
 
@@ -189,8 +220,8 @@ void MyGLWidget::paintGL(){
     glEnableClientState(GL_VERTEX_ARRAY);
 
 
-    glNormalPointer(GL_FLOAT,0,cube);
-    glVertexPointer(3,GL_FLOAT,0,cube);
+    glNormalPointer(GL_FLOAT,0,bing);
+    glVertexPointer(3,GL_FLOAT,0,bing);
 
     //192
     glDrawArrays(GL_QUADS,0,648);
@@ -249,41 +280,6 @@ void MyGLWidget::drawSphere(double r, int lats, int longs) {
               std::cout << " Ausgabe: z0 = " << z0 << " || zr0 = " << zr0 << " || x = "
                       << x << " || y = " << y << std::endl;
 
-
-
-                /*
-              cube[k] = x*zr0;
-              cube[k+1] = y*zr0;
-              cube[k+2] = z0;
-
-              cube[k+3] = x*zr1;
-              cube[k+4] = y*zr1;
-              cube[k+5] = z1;
-
-              cube[k+6] = x_2*zr1;
-              cube[k+7] = y_2*zr1;
-              cube[k+8] = z1;
-
-              cube[k+9] = x_2*zr0;
-              cube[k+10] = y_2*zr0;
-              cube[k+11] = z0;
-              */
-
-              cube[k] = x;
-              cube[k+1] = y;
-              cube[k+2] = z0;
-
-              cube[k+3] = x;
-              cube[k+4] = y;
-              cube[k+5] = z1;
-
-              cube[k+6] = x_2;
-              cube[k+7] = y_2;
-              cube[k+8] = z1;
-
-              cube[k+9] = x_2;
-              cube[k+10] = y_2;
-              cube[k+11] = z0;
 
               k+=12;
 
@@ -351,4 +347,20 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
 /**************************************************************************************/
 /**************************************************************************************/
 /**************************************************************************************/
+
+void MyGLWidget::getCube(GLfloat x, int i)
+{
+    if(x<0)
+    {
+        cube[i] = -1;
+    }
+    if(x>0)
+    {
+        cube[i] = 1;
+    }
+    if(x==0)
+    {
+        cube[i] = 0;
+    }
+}
 
