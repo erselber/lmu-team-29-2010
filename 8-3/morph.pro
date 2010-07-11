@@ -1,7 +1,5 @@
 HEADERS += myglwidget.h
 SOURCES += myglwidget.cpp \
     main.cpp
-
-QT +=opengl
-
-CONFIG +=console
+QT += opengl
+CONFIG += console
