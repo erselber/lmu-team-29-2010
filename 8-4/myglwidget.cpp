@@ -22,9 +22,13 @@ GLfloat normalen[] = {0,0,1,
 
 float x_vector[] = {1,0,0};
 float z_vector[] = {0,0,1};
+
+Quaternion *q0;
 Quaternion *q1;
 Quaternion *q2;
+Quaternion *q3;
 
+float time = 0;
 /**************************************************************************************/
 /**************************************************************************************/
 
@@ -72,9 +76,10 @@ void MyGLWidget::initializeGL(){
 
  /****************************************/
 
-
+ q0 = new Quaternion(0,x_vector);
  q1 = new Quaternion(10, x_vector);
  q2 = new Quaternion(10, x_vector);
+ q3 = new Quaternion(10,z_vector);
 
 
 }
@@ -125,7 +130,17 @@ void MyGLWidget::paintGL(){
 
  draw_Cube();
 
- q1->multiply(q1,q2);
+ if(z_axis==0)
+ {
+    q1->multiply(q1,q2);
+ }
+ else
+ {
+     q1->slerp(q1,q3,time);
+     //q1->multiply(q1,q3);
+
+ }
+
 
 
 }
@@ -205,7 +220,10 @@ void MyGLWidget::setXRotation(int angle)
      x_axis = angle;
      //emit xRotationChanged(angle);
 
-     q1 = new Quaternion(x_axis, x_vector);
+     q1 = new Quaternion(x_axis,x_vector);
+     q2 = new Quaternion(x_axis, x_vector);
+
+     std::cout << " GRAD VECTOR X = " << x_axis << std::endl;
      updateGL();
  }
 }
@@ -231,9 +249,13 @@ void MyGLWidget::setZRotation(int angle)
      //emit zRotationChanged(angle);
 
 
-     q2 = new Quaternion(z_axis, z_vector);
+     q3 = new Quaternion(z_axis, z_vector);
+     time = 50;
+
      updateGL();
  }
 }
 
 /**************************************************************************************/
+
+

@@ -18,8 +18,8 @@ MyWidget::MyWidget(QWidget *parent):QWidget(parent)
        QSlider *z_slider = new QSlider();
        QSlider *x_slider = new QSlider();
 
-       z_slider->setRange(0,360);
-       x_slider->setRange(0,360);
+       z_slider->setRange(0,90);
+       x_slider->setRange(0,90);
 
        z_slider->setSliderPosition(0);
        x_slider->setSliderPosition(0);

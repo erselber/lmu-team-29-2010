@@ -3,6 +3,7 @@
 
 #include <QGLWidget>
 #include "QMouseEvent"
+#include "QKeyEvent"
 
 
 
@@ -18,7 +19,7 @@ public:
     }
 
 
-
+void drawBOMBOM(bool form);
 
 
 public slots:
@@ -37,6 +38,9 @@ protected:
     void paintGL();
 
     void mouseMoveEvent(QMouseEvent *event);
+
+    void keyPressEvent( QKeyEvent* event );
+    void keyReleaseEvent(QKeyEvent *event);
 
 private:
 

@@ -12,36 +12,26 @@
 /*************************/
 
 GLfloat time_counter;
-
-
-
-GLfloat xx;
-GLfloat yy;
-GLfloat zz;
+GLfloat time_old;
 
 GLfloat laenge;
+GLfloat laenge_2;
 
-int i;
+int switcher = 0;
 
-bool switcher = true;
 int schicht = 5;
 int sektor = 8;
-GLfloat vertex_array[648]; // => schicht * sector * 3 (PUNKT)
+
+GLfloat sphere_array[480]; // => schicht * sector * 3 (PUNKT)
+GLfloat cube_array[480];
+
+GLfloat tmp_array[480];
+
+GLfloat bing_1[480];
+GLfloat bing_2[480];
 GLfloat cube[3];
-GLfloat bing[648];
 
 
-GLfloat vertices[] = {
-            -1,-1,1,
-            1,-1,1,
-            1,1,1,
-            -1,1,1,
-            1,-1,-1,
-            -1,-1,-1,
-            -1,1,-1,
-            1,1,-1
-
-     };
 
 
 /**************************************************************************************/
@@ -51,7 +41,7 @@ GLfloat vertices[] = {
 void MyGLWidget::initializeGL(){
 
     glEnable(GL_DEPTH_TEST);
-    //glEnable(GL_CULL_FACE);
+    glEnable(GL_CULL_FACE);
 
     glShadeModel(GL_FLAT);
 
@@ -59,11 +49,7 @@ void MyGLWidget::initializeGL(){
 
     QTimer *internalTimer = new QTimer( this ); // create internal timer
     connect( internalTimer, SIGNAL(timeout()), SLOT(updateGL()) );
-    internalTimer->start(1000);
-
-    /****************************/
-
-    time_counter = 0; // Aktuelle Zeit t
+    internalTimer->start(10);
 
     /****************************/
 
@@ -91,7 +77,9 @@ void MyGLWidget::initializeGL(){
 
 
     /****************************************/
+    /****************************/
 
+    time_counter = 0; // Aktuelle Zeit t
 
     drawSphere(1,schicht,sektor);
 
@@ -112,11 +100,9 @@ void MyGLWidget::resizeGL(int w, int h){
 
 void MyGLWidget::paintGL(){
 
-    //
-
-
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glClearColor(0,0,0,1);
+
 
 
 
@@ -131,164 +117,230 @@ void MyGLWidget::paintGL(){
 
     glTranslated(0,0,-10);
 
+    glRotated(90,1,0,0);
+    //glRotated(-80,0,1,0);
+
+
     glRotated(x_axis,1,0,0);
     glRotated(y_axis,0,1,0);
     glRotated(z_axis,0,0,1);
 
 
-    if(switcher)
-    {
-        for(int i=0;i<(sizeof(vertex_array)/4);i+=3)
-        {
+
+    drawBOMBOM(true);
 
 
-            getCube(vertex_array[i],0);
-            getCube(vertex_array[i+1],1);
-            getCube(vertex_array[i+2],2);
+    glPushMatrix();
 
-            GLfloat vector[] = { cube[0]-vertex_array[i], cube[1]-vertex_array[i+1], cube[2]-vertex_array[i+2]};
-
-            //Laenge des Vectors + time_old (t0) == ist der Zeitpunkt t1
-            laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
-
-
-            if( ((round(bing[i] * 10) / 10)!= cube[0]) |
-                ((round(bing[i+1] * 10) / 10)!= cube[1]) |
-                ((round(bing[i+2] * 10) / 10)!= cube[2]))
-            {
-                GLfloat time = (time_counter)/(laenge); //-time_old
-
-
-                bing[i] = vertex_array[i] + time * (cube[0]-vertex_array[i]);
-                bing[i+1] = vertex_array[i+1] + time * (cube[1]-vertex_array[i+1]);
-                bing[i+2] = vertex_array[i+2] + time * (cube[2]-vertex_array[i+2]);
-
-               /* std::cout << " x: " << bing[i] << " y: " <<
-                        bing[i+1] << " z: " << bing[i+2]
-                        << " Laenge: " << laenge << " Counter: "<< i<< std::endl;*/
-
-            }
-        }
-        else{
-
-
-            for(int i=0;i<(sizeof(vertex_array)/4);i+=3)
-            {
-
-
-                GLfloat vector[] = {vertex_array[i]-bing[i], vertex_array[i+1]-bing[i+1], vertex_array[i+2]-bing[i+2]};
-
-                //Laenge des Vectors + time_old (t0) == ist der Zeitpunkt t1
-                laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
-
-
-                if( ((round(bing[i] * 10) / 10)!= vertex_array[i]) |
-                    ((round(bing[i+1] * 10) / 10)!= vertex_array[i+1]) |
-                    ((round(bing[i+2] * 10) / 10)!= vertex_array[i+2]))
-                {
-                    GLfloat time = (time_counter)/(laenge); //-time_old
-
-
-                    bing[i] += time * (vertex_array[i]-bing[i]);
-                    bing[i+1] += time * (vertex_array[i+1]-bing[i+1]);
-                    bing[i+2] += time * (vertex_array[i+2]-bing[i+2]);
-
-                   /* std::cout << " x: " << bing[i] << " y: " <<
-                            bing[i+1] << " z: " << bing[i+2]
-                            << " Laenge: " << laenge << " Counter: "<< i<< std::endl;*/
-
-                }
-
-
-
-
-
-
-
-
-
-        }
-
-
-
-
-    time_counter+=0.1;
-
-
+    glTranslated(-2,0,0);
 
     glEnableClientState(GL_NORMAL_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
 
 
-    glNormalPointer(GL_FLOAT,0,bing);
-    glVertexPointer(3,GL_FLOAT,0,bing);
+    glNormalPointer(GL_FLOAT,0,bing_1);
+    glVertexPointer(3,GL_FLOAT,0,bing_1);
 
-    //192
-    glDrawArrays(GL_QUADS,0,648);
+    glDrawArrays(GL_QUADS,0,480);
 
     glDisableClientState(GL_NORMAL_ARRAY);
     glDisableClientState(GL_VERTEX_ARRAY);
 
+    glPopMatrix();
 
 
+    glPushMatrix();
 
+    glTranslated(2,0,0);
+
+    glEnableClientState(GL_NORMAL_ARRAY);
+    glEnableClientState(GL_VERTEX_ARRAY);
+
+
+    glNormalPointer(GL_FLOAT,0,bing_2);
+    glVertexPointer(3,GL_FLOAT,0,bing_2);
+
+    glDrawArrays(GL_QUADS,0,480);
+
+    glDisableClientState(GL_NORMAL_ARRAY);
+    glDisableClientState(GL_VERTEX_ARRAY);
+
+    glPopMatrix();
 
 }
 
 /**************************************************************************************/
-void MyGLWidget::drawSphere(double r, int lats, int longs) {
-      int i, j;
-
-      int k = 0;
-      for(i = 0; i <= lats; i++) {
-          double lat0 = PI * (-0.5 + (double) (i - 1) / lats);
-          double z0  = sin(lat0);
-          double zr0 =  cos(lat0);
+void MyGLWidget::drawBOMBOM(bool form)
+{
+    if( (switcher%2) == 0)
+    {
+        for(int i=0;i<480;i+=3)
+        {
 
 
-          double lat1 = PI * (-0.5 + (double) i / lats);
-          double z1 = sin(lat1);
-          double zr1 = cos(lat1);
+            /*
+            getCube(sphere_array[i],0);
+            getCube(sphere_array[i+1],1);
+            getCube(sphere_array[i+2],2);
+            */
 
 
-          for(j = 0; j <= longs; j++) {
-              double lng = 2 * PI * (double) (j - 1) / longs;
-              double x = cos(lng);
-              double y = sin(lng);
+            //GLfloat vector[] = { cube[0]-sphere_array[i], cube[1]-sphere_array[i+1], cube[2]-sphere_array[i+2]};
 
-              double lng_2 = 2 * PI * (double) j / longs;
-              double x_2 = cos(lng_2);
-              double y_2 = sin(lng_2);
+            GLfloat vector[] = { cube_array[i]-sphere_array[i], cube_array[i+1]-sphere_array[i+1], cube_array[i+2]-sphere_array[i+2]};
+            //Laenge des Vectors + time_old (t0) == ist der Zeitpunkt t1
+            laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
 
 
-              vertex_array[k] = x*zr0;
-              vertex_array[k+1] = y*zr0;
-              vertex_array[k+2] = z0;
+            if( ((round(bing_1[i] * 10) / 10)!= cube_array[i]) |
+                ((round(bing_1[i+1] * 10) / 10)!= cube_array[i+1]) |
+                ((round(bing_1[i+2] * 10) / 10)!= cube_array[i+2]))
+            {
+                GLfloat time = (time_counter)/(laenge); //-time_old
 
-              vertex_array[k+3] = x*zr1;
-              vertex_array[k+4] = y*zr1;
-              vertex_array[k+5] = z1;
-
-              vertex_array[k+6] = x_2*zr1;
-              vertex_array[k+7] = y_2*zr1;
-              vertex_array[k+8] = z1;
-
-              vertex_array[k+9] = x_2*zr0;
-              vertex_array[k+10] = y_2*zr0;
-              vertex_array[k+11] = z0;
-
-              std::cout << " Ausgabe: z0 = " << z0 << " || zr0 = " << zr0 << " || x = "
-                      << x << " || y = " << y << std::endl;
+                bing_1[i] += time * (cube_array[i]-sphere_array[i]);
+                bing_1[i+1] += time * (cube_array[i+1]-sphere_array[i+1]);
+                bing_1[i+2] += time * (cube_array[i+2]-sphere_array[i+2]);
 
 
-              k+=12;
+            }
 
 
-          }
-      }
+            /***************************************************************************/
+            GLfloat vector_2[] = {cube_array[i]-sphere_array[i], cube_array[i+1]-sphere_array[i+1], cube_array[i+2]-sphere_array[i+2]};
+
+            laenge_2 = sqrt(vector_2[0]*vector_2[0] + vector_2[1]*vector_2[1] + vector_2[2]*vector_2[2]);
+
+            if( ((round(bing_2[i] * 10) / 10) != sphere_array[i]) |
+                ((round(bing_2[i+1] * 10) / 10) != sphere_array[i+1]) |
+                ((round(bing_2[i+2] * 10) / 10) != sphere_array[i+2]))
+            {
+
+                GLfloat time = (time_counter)/(laenge_2);
+
+                bing_2[i] += time * (sphere_array[i]-cube_array[i]);
+                bing_2[i+1] += time * (sphere_array[i+1]-cube_array[i+1]);
+                bing_2[i+2] += time * (sphere_array[i+2]-cube_array[i+2]);
+
+
+            }
+        }
+
+    }
+    else{
+
+
+            for(int i=0;i<480;i+=3)
+            {
+
+                GLfloat vector[] = {tmp_array[i]-sphere_array[i], tmp_array[i+1]-sphere_array[i+1], tmp_array[i+2]-sphere_array[i+2]};
+
+                laenge = sqrt(vector[0]*vector[0] + vector[1]*vector[1] + vector[2]*vector[2]);
+
+
+                /*
+                if( (round(bing_1[i]) != sphere_array[i]) |
+                    (round(bing_1[i+1])!= sphere_array[i+1]) |
+                    (round(bing_1[i+2]) != sphere_array[i+2]))*/
+                if(time_old>0)
+                {
+                    GLfloat time = (time_counter)/(laenge); //-time_old
+
+                    bing_1[i] = tmp_array[i] + time * (sphere_array[i]-tmp_array[i]);
+                    bing_1[i+1] = tmp_array[i+1] + time * (sphere_array[i+1]-tmp_array[i+1]);
+                    bing_1[i+2] = tmp_array[i+2] + time * (sphere_array[i+2]-tmp_array[i+2]);
+
+
+                }
+
+            }
+
+
+    }
+
+    time_counter+=0.00001;
+
+    if(switcher%2!=0)
+    {time_old -=0.001;}
+
+}
+
+/**************************************************************************************/
+void MyGLWidget::drawSphere(double rad, int lats, int longs) {
+
+    int k=0;
+    for(int a=0;a!=lats;a++)
+    {
+
+        for(int c=0;c!=longs;c++)
+        {
+            sphere_array[k] = cos(2*PI/lats*a)*cos(PI/longs*c-PI/2)*rad;
+            sphere_array[k+1] =  sin(2*PI/lats*a)*cos(PI/longs*c-PI/2)*rad;
+            sphere_array[k+2] = sin(PI/longs*c-PI/2)*rad;
+
+            sphere_array[k+3] = cos(2*PI/lats*(a+1))*cos(PI/longs*c-PI/2)*rad;
+            sphere_array[k+4] = sin(2*PI/lats*(a+1))*cos(PI/longs*c-PI/2)*rad;
+            sphere_array[k+5] = sin(PI/longs*c-PI/2)*rad;
+
+            sphere_array[k+6] = cos(2*PI/lats*(a+1))*cos(PI/longs*(c+1)-PI/2)*rad;
+            sphere_array[k+7] = sin(2*PI/lats*(a+1))*cos(PI/longs*(c+1)-PI/2)*rad;
+            sphere_array[k+8] = sin(PI/longs*(c+1)-PI/2)*rad;
+
+            sphere_array[k+9] =  cos(2*PI/lats*a)*cos(PI/longs*(c+1)-PI/2)*rad;
+            sphere_array[k+10] = sin(2*PI/lats*a)*cos(PI/longs*(c+1)-PI/2)*rad;
+            sphere_array[k+11] = sin(PI/longs*(c+1)-PI/2)*rad;
+
+
+            k +=12;
+
+        }
+    }
+
+    for(int m=0; m < 480 ; m+=3)
+    {
+
+
+             getCube(sphere_array[m],0);
+             cube_array[m] = cube[0];
+
+             getCube(sphere_array[m+1],1);
+             cube_array[m+1] = cube[1];
+
+             getCube(sphere_array[m+2],2);
+             cube_array[m+2] = cube[2];
+
+             std::cout << "KOORDINATE = " << m << " x: " << cube_array[m] << " y: " <<
+             cube_array[m+1] << " z: " <<cube_array[m+2]
+             << std::endl;
+
+             bing_1[m] = sphere_array[m];
+             bing_1[m+1] = sphere_array[m+1];
+             bing_1[m+2] = sphere_array[m+2];
+
+             bing_2[m] = cube_array[m];
+             bing_2[m+1] = cube_array[m+1];
+             bing_2[m+2] = cube_array[m+2];
+
+    }
 
   }
 /**************************************************************************************/
+
+void MyGLWidget::getCube(GLfloat x, int i)
+{
+
+    if(x<=0)
+    {
+        cube[i] = -1;
+    }
+    if(x>0)
+    {
+        cube[i] = 1;
+    }
+
+
+}
+
 /**************************************************************************************/
 /**************************************************************************************/
                /**  SLOTS SLOTS SLOTS  **/
@@ -303,6 +355,8 @@ void MyGLWidget::setXRotation(int angle)
         //emit xRotationChanged(angle);
         updateGL();
     }
+
+    std::cout << " X - Achse " << x_axis << std::endl;
 }
 
 /**************************************************************************************/
@@ -315,6 +369,8 @@ void MyGLWidget::setYRotation(int angle)
         //emit yRotationChanged(angle);
         updateGL();
     }
+
+    std::cout << " Y - Achse " << y_axis << std::endl;
 }
 /**************************************************************************************/
 
@@ -341,26 +397,42 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *event)
         setYRotation(y_axis + 8 * dx);
     }
     lastPos = event->pos();
+
 }
 
 
 /**************************************************************************************/
 /**************************************************************************************/
-/**************************************************************************************/
 
-void MyGLWidget::getCube(GLfloat x, int i)
+void MyGLWidget::keyPressEvent( QKeyEvent* event )
 {
-    if(x<0)
+
+    if(event->key() == Qt::Key_Space)
     {
-        cube[i] = -1;
+
+        std::cout << " KEY PRESSED = " << std::endl;
+
+        switcher++;
+        time_old = time_counter;
+        time_counter=0;
+
+        if(switcher%2!=0)
+        {
+            for(int m=0; m < 480 ; m++)
+            {
+                tmp_array[m] = bing_1[m];
+            }
+        }
+
     }
-    if(x>0)
-    {
-        cube[i] = 1;
-    }
-    if(x==0)
-    {
-        cube[i] = 0;
-    }
+
 }
+
+void MyGLWidget::keyReleaseEvent(QKeyEvent *event) {
+
+    event->ignore();
+}
+/**************************************************************************************/
+
+
 

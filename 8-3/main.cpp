@@ -26,8 +26,7 @@ MyWidget::MyWidget(QWidget *parent):QWidget(parent)
 
        layout->addWidget(win,Qt::AlignLeft);
 
-
-
+       win->grabKeyboard();
        setLayout(layout);
 }
 

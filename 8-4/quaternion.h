@@ -14,6 +14,8 @@ public:
 
     void quatToMatrix(float matrix[16]);
 
+    void slerp(Quaternion *q1, Quaternion *q2, float t);
+
     float coords[4];
 
 private:

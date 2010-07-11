@@ -89,3 +89,46 @@ void Quaternion::quatToMatrix(float matrix[16]){
     matrix[6] = 2.0 * (tmp1 - tmp2)*invs ;
 }
 
+void Quaternion::slerp(Quaternion *q1, Quaternion *q2, float t)
+{
+
+    float cosHalfTheta = q1->coords[0] * q2->coords[0] + q1->coords[1] * q2->coords[1] + q1->coords[2] * q2->coords[2] + q1->coords[3] * q2->coords[3];
+            // if qa=qb or qa=-qb then theta = 0 and we can return qa
+            if (fabs(cosHalfTheta) >= 1.0)
+            {
+                this->coords[0] = q1->coords[0];
+                this->coords[1] = q1->coords[1];
+                this->coords[2] = q1->coords[2];
+                this->coords[3] = q1->coords[3];
+            }
+            else
+            {
+                float halfTheta = acos(cosHalfTheta);
+                float sinHalfTheta = sqrt(1.0 - cosHalfTheta*cosHalfTheta);
+                // Calculate temporary values.
+
+                // if theta = 180 degrees then result is not fully defined
+                // we could rotate around any axis normal to qa or qb
+                if (fabs(sinHalfTheta) < 0.001){ // fabs is floating point absolute
+
+                    this->coords[0] = q1->coords[0]*0.5 + q2->coords[0]*0.5;
+                    this->coords[1] = q1->coords[1]*0.5 + q2->coords[1]*0.5;
+                    this->coords[2] = q1->coords[2]*0.5 + q2->coords[2]*0.5;
+                    this->coords[3] = q1->coords[3]*0.5 + q2->coords[3]*0.5;
+                }
+                else
+                {
+                    float ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
+                    float ratioB = sin(t * halfTheta) / sinHalfTheta;
+                    //calculate Quaternion.
+
+                    this->coords[0] = q1->coords[0]*ratioA + q2->coords[0]*ratioB;
+                    this->coords[1] = q1->coords[1]*ratioA + q2->coords[1]*ratioB;
+                    this->coords[2] = q1->coords[2]*ratioA + q2->coords[2]*ratioB;
+                    this->coords[3] = q1->coords[3]*ratioA + q2->coords[3]*ratioB;
+                }
+            }
+
+
+}
+
