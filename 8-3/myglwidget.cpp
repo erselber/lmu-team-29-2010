@@ -112,7 +112,7 @@ void MyGLWidget::paintGL(){
  {
     for(int i=0;i<480;i++)
     {
-           if((round(bing_1[i] * 10) / 10)!=cube_array[i])
+           if((round(bing_1[i] * 1000) / 1000)!=cube_array[i])
            {
               bing_1[i] += (cube_array[i]-sphere_array[i])/2000;
               bing_2[i] += (sphere_array[i]-cube_array[i])/2000;
@@ -247,7 +247,7 @@ void MyGLWidget::drawSphere(double rad, int lats, int longs) {
 void MyGLWidget::getCube(GLfloat x, int i)
 {
 
- if(x<=0.0)
+ if(x<=0)
  {
      cube[i] = -1;
  }
