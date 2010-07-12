@@ -12,7 +12,7 @@
 
 int counter = 0;
 
-GLdouble cubes[100][3];
+GLdouble cubes[300];
 /**************************************************************************************/
 /**************************************************************************************/
 
@@ -23,7 +23,14 @@ void MyGLWidget::initializeGL(){
  glEnable(GL_CULL_FACE);
 
  glShadeModel(GL_FLAT);
-
+/*
+ for(int i=0;i<100;i++)
+ {
+     cubes[i][0] = 0;
+     cubes[i][1] = 0;
+     cubes[i][2] = 0;
+ }
+*/
 
 }
 
@@ -50,21 +57,21 @@ void MyGLWidget::paintGL(){
  glMatrixMode(GL_PROJECTION);
  glLoadIdentity();
 
- gluPerspective(45,1,1,1000);
+ gluPerspective(45,1,1,100);
 
  glMatrixMode(GL_MODELVIEW);
  glLoadIdentity();
 
 
- glTranslated(0,0,-1);
-
-
- for(int i=0;i<counter;i++)
+ for(int i=0;i<counter;i+=3)
  {
     glPushMatrix();
 
-    glTranslated(cubes[counter][0],cubes[counter][1],0);
+    glTranslated(cubes[i],-cubes[i+1],cubes[i+2]);//
 
+    std::cout << "CUBES --------->" << cubes[i]<< " , " << cubes[i+1] << " , " << cubes[i+2] << std::endl;
+
+    glRotated(-50,0,1,0);
     drawCube();
 
     glPopMatrix();
@@ -90,15 +97,37 @@ GLdouble* MyGLWidget::picking(QPoint mousepos)
     winX = (GLfloat) mousepos.x();
     winY = (GLfloat) mousepos.y();
 
-    winZ = -1.0;
+    winZ = 0.95;
 
     gluUnProject(winX,winY,winZ, modelview, projection, viewport, &pos[0], &pos[1], &pos[2]);
 
-    std::cout << "POS[0] POS[1]----------->" << pos[0] << " , " << pos[1] << std::endl;
     return pos;
 }
 
 /**************************************************************************************/
+
+void MyGLWidget::setCube(QMouseEvent *event)
+{
+    if(counter<300)
+    {
+        GLdouble *pos;
+        pos = picking(event->pos());
+
+        cubes[counter] = pos[0];
+        cubes[counter+1] = pos[1];
+        cubes[counter+2] = pos[2];
+
+        counter+=3;
+
+        std::cout << "Mouse EVent----------->" << event->pos().x() << " , " << event->pos().y() << std::endl;
+
+
+        updateGL();
+    }
+}
+
+/**************************************************************************************/
+
 void MyGLWidget::drawCube(){
 
     glBegin(GL_QUADS);
@@ -160,44 +189,16 @@ void MyGLWidget::drawCube(){
 
 }
 /**************************************************************************************/
-void MyGLWidget::setCube(QMouseEvent *event)
-{
-    GLdouble *position = (GLdouble*) malloc(3);
 
-    position = picking(event->pos());
-
-
-    cubes[counter][0] = position[0];
-    cubes[counter][1] = position[1];
-    cubes[counter][2] = position[2];
-
-    counter++;
-
-    std::cout << "Mouse EVent----------->" << event->pos().x() << " , " << event->pos().y() << std::endl;
-
-    std::cout << "Mouse EVent---------->" << position[0] << " , " << position[1] << std::endl;
-
-   updateGL();
-}
-
-/**************************************************************************************/
 
 void MyGLWidget::mousePressEvent(QMouseEvent *event)
 {
-
     setCube(event);
 }
 
 void MyGLWidget::keyPressEvent( QKeyEvent* event )
 {
-
- if(event->key() == Qt::Key_Space)
- {
-
     event->ignore();
-
-
- }
 
 }
 
